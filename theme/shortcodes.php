@@ -19,7 +19,7 @@
             return date("Y"); // Return current year
         }, $markdown);
 
-    // Process columns shortcode with optional classes
+    // Shortcode: columns with optional classes
         $pattern = '/\{columns(.*?)\}(.*?)\{\/columns\}/s';
         $markdown = preg_replace_callback($pattern, function ($matches) use ($Parsedown) {
             // Capture the class (if any) directly after {columns}
@@ -58,7 +58,6 @@
             $imgRounded = $Parsedown->text($matches[1]);
             return '<div class="img-rounded">' . $imgRounded . '</div>';
         }, $markdown);
-
 
         return $markdown;
     }
