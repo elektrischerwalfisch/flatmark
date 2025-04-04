@@ -5,6 +5,16 @@
     // Initialize Parsedown
         $Parsedown = new Parsedown();
 
+    // Shortcode: code
+        $codeBlocks = [];
+        $markdown = preg_replace_callback('/\{code\}(.*?)\{\/code\}/s', function ($matches) use (&$codeBlocks) {
+            // Generate a unique placeholder
+            $placeholder = '[[[CODEBLOCK_' . count($codeBlocks) . ']]]';
+            // Store the raw code block content
+            $codeBlocks[$placeholder] = '<div class="code"><code>' . htmlspecialchars($matches[1]) . '</code></div>';
+            return $placeholder;
+        }, $markdown);
+
     // Shortcode: language menu
         $pattern = '/\{langmenu\}(.*?)\{\/langmenu\}/s';
         $markdown = preg_replace_callback($pattern, function ($matches) use ($Parsedown) {
@@ -58,6 +68,12 @@
             $imgRounded = $Parsedown->text($matches[1]);
             return '<div class="img-rounded">' . $imgRounded . '</div>';
         }, $markdown);
+
+
+    // Shortcode: code - Restore code blocks (so no shortcode inside was processed)
+        foreach ($codeBlocks as $placeholder => $codeBlock) {
+            $markdown = str_replace($placeholder, $codeBlock, $markdown);
+        }
 
         return $markdown;
     }

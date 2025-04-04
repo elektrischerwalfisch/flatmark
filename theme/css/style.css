@@ -97,6 +97,7 @@
 :root {  --colordark: #666666;}
 :root {  --colorlight: #FFFFFF;}
 :root {  --color-gray-01: #424242;}
+:root {  --color-gray-02: #E6E6E6;}
 
 :root {  --color-01: #DBA901;} 
 :root {  --color-02: #DF3A01;}
@@ -185,13 +186,18 @@ main .bg-color * {color:var(--colorlight);}
 main .img-rounded {aspect-ratio: 1/1;border-radius: 50%;border: var(--space-below-01) solid var(--colorlight);overflow: hidden;margin-top: calc(0px - var(--space-below-02));}
 main .img-rounded img {object-fit: cover;width: 100%;height: 100%;display: block;}
 
+main code {
+    font-family: courier 'Courier New', Courier, monospace;font-size: var(--fontsize-m);
+    background: var(--color-gray-02);color: var(--colordark);}
+main div.code code {display: block;white-space: pre-wrap;margin-bottom: var(--space-below-01);
+    padding: var(--space-below-01) var(--space-below-01);border-radius: 10px;}
+
 footer {display: flex;justify-content: space-between;}
 footer * {margin-bottom: 0;color: var(--colorlight);font-weight: 600;}
 footer ul {display: flex;gap: var(--gap-01);}
 footer a {text-decoration: none;}
 footer a:is(:hover, :focus) {text-decoration: underline;}
 
-code {background: var(--color-01);padding: 3px;color: var(--colorlight);font-style: italic;font-weight: 600;}
 
 @media screen and (max-width: 781px) {
 
