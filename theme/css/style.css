@@ -143,7 +143,7 @@ hr {height: 1px;border: none;width: 100%;background: var(--color-01);margin-bott
 table {border-collapse: collapse;border-spacing: 0;}
 
 header ul {display: none;} /* prevent output of menu-lists before the are rendered in /theme/js/presets.js */
-header {position: relative;padding: var(--space-below-02) var(--side-space-02) var(--space-below-01) var(--side-space-02) ;}
+header {min-height: 143px; /* set min-height to prevent jump on first pageload */ position: relative;padding: var(--space-below-02) var(--side-space-02) var(--space-below-01) var(--side-space-02) ;}
 header img[alt=Logo] {width: 64px;display: block;float: left;margin-right: 10px;}
 header > p > a {color: var(--colorblack);display: block;text-decoration: none;font-size: var(--fontsize-xl);line-height: var(--lineheight-xxl);font-weight: 500;}
 header p {margin-bottom: 0;color: var(--colorblack);}
