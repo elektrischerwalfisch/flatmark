@@ -1,0 +1,4 @@
+- fix codeblock for img-rounded on example page
+- columns responsive
+- add to readme from allmanritter-page
+- research about web-ftp, add paragraph "flatmark as cms" to readme
