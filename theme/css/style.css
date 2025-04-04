@@ -92,12 +92,11 @@
 
 /* VARIABLES */
 :root {  --content-width01: 900px;}
-:root {  --menu-width: 150px;}
 
 :root {  --colorblack: #000000;}
 :root {  --colordark: #666666;}
 :root {  --colorlight: #FFFFFF;}
-:root {  --color-gray-10: #424242;}
+:root {  --color-gray-01: #424242;}
 
 :root {  --color-01: #DBA901;} 
 :root {  --color-02: #DF3A01;}
@@ -106,7 +105,6 @@
 :root {  --space-below-00: 5px;} 
 :root {  --space-below-01: 15px;} 
 :root {  --space-below-02: 25px;} 
-:root {  --space-below-03: 60px;} 
 :root {  --side-space-01: 15px;} 
 :root {  --side-space-02: 25px;} 
 :root {  --gap-01: 15px;} 
@@ -117,13 +115,13 @@
 :root {  --fontsize-l: 24px;} 
 :root {  --fontsize-xl: 34px;} 
 :root {  --fontsize-xxl: 64px;} 
-:root {  --lineheight-m: 1.4;} /* Line Height Default */
-:root {  --lineheight-xxl: 1.2;} 
+:root {  --lineheight-00: 1.4;} /* Line Height Default */
+:root {  --lineheight-01: 1.2;} 
 
 * {margin: 0;padding: 0;box-sizing: border-box;}
 header, footer, section, article, nav {display: block;}
 
-body {background: var(--color-gray-10);color: var(--colordark);font-family: 'opensans', Arial, Helvetica, Sans-Serif;font-weight: 400;font-style: normal;font-size: var(--fontsize-m); line-height: var(--lineheight-m);}
+body {background: var(--color-gray-01);color: var(--colordark);font-family: 'opensans', Arial, Helvetica, Sans-Serif;font-weight: 400;font-style: normal;font-size: var(--fontsize-m); line-height: var(--lineheight-00);}
 
 #wrapper {max-width: var(--content-width01);margin: 0 auto;padding: var(--space-below-02) var(--side-space-01);}
 header, main {background: var(--colorlight);}
@@ -145,7 +143,7 @@ table {border-collapse: collapse;border-spacing: 0;}
 header ul {display: none;} /* prevent output of menu-lists before the are rendered in /theme/js/presets.js */
 header {min-height: 143px; /* set min-height to prevent jump on first pageload */ position: relative;padding: var(--space-below-02) var(--side-space-02) var(--space-below-01) var(--side-space-02) ;}
 header img[alt=Logo] {width: 64px;display: block;float: left;margin-right: 10px;}
-header > p > a {color: var(--colorblack);display: block;text-decoration: none;font-size: var(--fontsize-xl);line-height: var(--lineheight-xxl);font-weight: 500;}
+header > p > a {color: var(--colorblack);display: block;text-decoration: none;font-size: var(--fontsize-xl);line-height: var(--lineheight-01);font-weight: 500;}
 header p {margin-bottom: 0;color: var(--colorblack);}
 
 header #lang {position: absolute;top: var(--space-below-02);right: var(--side-space-02);}
