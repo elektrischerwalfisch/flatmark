@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     
 // generate toggle-button and nav-wrapper for main-menu
-    document.querySelector('header').insertAdjacentHTML('beforeend', ' <button id="toggle-nav"><span></span><span></span><span></span></button>');
+    document.querySelector('header').insertAdjacentHTML('beforeend', '<button id="toggle-nav"><span></span><span></span><span></span></button>');
     document.querySelector('header').insertAdjacentHTML('beforeend', '<nav id="main-nav"></nav>');
 
 // menu & toggle-button variables
