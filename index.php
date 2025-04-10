@@ -6,7 +6,7 @@
  * Project URI: https://github.com/elektrischerwalfisch/flatmark
  * Author: elektrischerwalfisch
  * Author URI: https://www.elektrischerwalfisch.de
- * License: MIT (or another open-source license)
+ * License: MIT
  */
 
      // Start output buffering (prevents page to "jump" before everything is loaded)
