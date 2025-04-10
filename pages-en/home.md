@@ -2,14 +2,14 @@
 <!-- description: Description of homepage -->
 <!-- robots: index, follow -->
 
-{bg-color}{columns 33-66}
+{background color-02}{columns 33-66}
 {img-rounded}
 ![Pic](/files/example-pic-01.jpg)
 {/img-rounded}
 {columns-seperator}
 # flatMark
 dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-{/bg-color}{/columns}
+{/background}{/columns}
 
 {columns 33-66}
 ![Pic](/files/example-pic-02.jpg)

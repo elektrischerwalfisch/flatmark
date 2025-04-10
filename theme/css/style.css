@@ -91,17 +91,16 @@
 
 
 /* VARIABLES */
-:root {  --content-width01: 900px;}
+:root {  --content-width: 900px;}
+:root {  --website-background: #424242;}
 
 :root {  --colorblack: #000000;}
 :root {  --colordark: #666666;}
 :root {  --colorlight: #FFFFFF;}
-:root {  --color-gray-01: #424242;}
-:root {  --color-gray-02: #E6E6E6;}
 
 :root {  --color-01: #DBA901;} 
 :root {  --color-02: #DF3A01;}
-:root {  --color-03: #999999;} 
+:root {  --color-gray-01: #E6E6E6;}
 
 :root {  --space-below-00: 5px;} 
 :root {  --space-below-01: 15px;} 
@@ -122,16 +121,16 @@
 * {margin: 0;padding: 0;box-sizing: border-box;}
 header, footer, section, article, nav {display: block;}
 
-body {background: var(--color-gray-01);color: var(--colordark);font-family: 'opensans', Arial, Helvetica, Sans-Serif;font-weight: 400;font-style: normal;font-size: var(--fontsize-m); line-height: var(--lineheight-00);}
+body {background: var(--website-background);color: var(--colordark);font-family: 'opensans', Arial, Helvetica, Sans-Serif;font-weight: 400;font-style: normal;font-size: var(--fontsize-m); line-height: var(--lineheight-00);}
 
-#wrapper {max-width: var(--content-width01);margin: 0 auto;padding: var(--space-below-02) var(--side-space-01);}
+#wrapper {max-width: var(--content-width);margin: 0 auto;padding: var(--space-below-02) var(--side-space-01);}
 header, main {background: var(--colorlight);}
 
 h1 {font-size: var(--fontsize-xxl); font-weight: 800;color: var(--colordark);margin-bottom: var(--space-below-01);}
-h2 {font-size: var(--fontsize-l); font-weight: 800;color: var(--color-01);}
-h3 {font-size: var(--fontsize-m); font-weight: 700;}
+h2 {font-size: var(--fontsize-xl); font-weight: 800;color: var(--color-01);}
+h3 {font-size: var(--fontsize-l); font-weight: 700;}
 
-h2, p, ul, ol {margin-bottom: var(--space-below-01);}
+h2, h3, p, ul, ol {margin-bottom: var(--space-below-01);}
 
 a {color: var(--color-01); text-decoration: underline;}
 a:hover {text-decoration: none;outline: 0;}
@@ -163,10 +162,7 @@ header #main-nav ul a:is(:hover, :focus, .active) {background: var(--colorlight)
 main {padding: 0 var(--side-space-02) var(--space-below-01) var(--side-space-02);margin-bottom: var(--space-below-00);}
 
 main > h1 {background: var(--color-02);color: var(--colorlight);padding: var(--space-below-00) var(--side-space-01);text-align: right;}
-main ul {list-style: disc;padding-left: 40px;}
-main li {margin-bottom: var(--space-below-01);}
-main a::before {content: '[';}
-main a::after {content: ']';}
+main ul {list-style: disc;padding-left: var(--side-space-01);}
 main table {width: 100%;}
 main table th,
 main table td {text-align: left;border: none;min-width: 100px;vertical-align: top;padding-bottom: var(--space-below-01);}
@@ -175,20 +171,25 @@ main table tr > td:first-child {font-weight: 600;}
 main .columns {display: grid;grid-template-rows: auto;gap: var(--gap-01);box-sizing: border-box;}
 main .columns p:empty {display: none;}
 main .columns,
-main .columns.c-50-50 {grid-template-columns: 1fr 1fr;}
-main .columns.c-33-66 {grid-template-columns: 1fr 2fr;}
-main .columns.c-66-33 {grid-template-columns: 2fr 1fr;}
-main .columns.c-33-33-33 {grid-template-columns: 1fr 1fr 1fr;}
+main .columns.cols-50-50 {grid-template-columns: 1fr 1fr;}
+main .columns.cols-33-66 {grid-template-columns: 1fr 2fr;}
+main .columns.cols-66-33 {grid-template-columns: 2fr 1fr;}
+main .columns.cols-33-33-33 {grid-template-columns: 1fr 1fr 1fr;}
 
 main .bg-color {padding: var(--space-below-01) var(--side-space-01);background:var(--color-02);margin-bottom: var(--space-below-01);}
 main .bg-color * {color:var(--colorlight);}
+
+main .background {padding: var(--space-below-01) var(--side-space-01);background:var(--color-gray-01);margin-bottom: var(--space-below-01);}
+main .background.bg-color-01 {background:var(--color-01);}
+main .background.bg-color-02 {background:var(--color-02);}
+main .background:is(.bg-color-01, .bg-color-02) * {color:var(--colorlight);}
 
 main .img-rounded {aspect-ratio: 1/1;border-radius: 50%;border: var(--space-below-01) solid var(--colorlight);overflow: hidden;margin-top: calc(0px - var(--space-below-02));}
 main .img-rounded img {object-fit: cover;width: 100%;height: 100%;display: block;}
 
 main code {
     font-family: courier 'Courier New', Courier, monospace;font-size: var(--fontsize-m);
-    background: var(--color-gray-02);color: var(--colordark);}
+    background: var(--color-gray-01);color: var(--colordark);}
 main div.code code {display: block;white-space: pre-wrap;margin-bottom: var(--space-below-01);
     padding: var(--space-below-01) var(--space-below-01);border-radius: 10px;}
 

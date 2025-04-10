@@ -1,7 +1,7 @@
-{langmenu}
+{extras}
 - [English](/en)
 - [Deutsch](/de)
-{/langmenu}
+{/extras}
 
 ![Logo](/files/logo.gif)
 [flatMark](/de)
