@@ -1,4 +1,4 @@
 © {year} flatMark  
 
 - [Legal notice](/en/legal-notice)
-- [PrivacyPolicy](/de/datenschutz)
+- [PrivacyPolicy](/en/privacy-policy)

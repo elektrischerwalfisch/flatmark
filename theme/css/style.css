@@ -108,8 +108,6 @@
 :root {  --fontsize-l: 24px;} 
 :root {  --fontsize-xl: 34px;} 
 :root {  --fontsize-xxl: 64px;} 
-:root {  --lineheight-00: 1.4;} /* Line Height Default */
-:root {  --lineheight-01: 1.2;} 
 
 :root {  --space-below-00: 5px;} 
 :root {  --space-below-01: 15px;} 
@@ -123,7 +121,7 @@
 * {margin: 0;padding: 0;box-sizing: border-box;}
 header, footer, section, article, nav {display: block;}
 
-body {background: var(--website-background);color: var(--colordark);font-family: 'opensans', Arial, Helvetica, Sans-Serif;font-weight: 400;font-style: normal;font-size: var(--fontsize-m); line-height: var(--lineheight-00);}
+body {background: var(--website-background);color: var(--colordark);font-family: 'opensans', Arial, Helvetica, Sans-Serif;font-weight: 400;font-style: normal;font-size: var(--fontsize-m); line-height: 1.4;}
 
 #wrapper {max-width: var(--content-width);margin: 0 auto;padding: var(--space-below-02) var(--side-space-01);}
 header, main {background: var(--colorlight);}
@@ -142,13 +140,13 @@ strong {font-weight: 700;}
 hr {height: 1px;border: none;width: 100%;background: var(--color-01);margin-bottom: var(--space-below-00);}
 table {border-collapse: collapse;border-spacing: 0;}
 
-header ul {display: none;} /* prevent output of menu-lists before the are rendered in /theme/js/presets.js */
+header ul {display: none;} /* prevent output of menu-lists before they are rendered in /theme/js/presets.js */
 header {min-height: 143px; /* set min-height to prevent jump on first pageload */ display: flex;flex-wrap: wrap; position: relative;padding: var(--space-below-02) var(--side-space-02) var(--space-below-01) var(--side-space-02) ;}
 
 header p {margin-bottom: 0;color: var(--colorblack);width: calc(100% - 74px);}
 header p:has(img) {width: auto;}
 header p:has(img) img {width: 64px;display: block;margin-right: 10px;}
-header > p > a {color: var(--colorblack);display: block;text-decoration: none;font-size: var(--fontsize-xl);line-height: var(--lineheight-01);font-weight: 500;}
+header > p > a {color: var(--colorblack);display: block;text-decoration: none;font-size: var(--fontsize-xl);line-height: 1.2;font-weight: 500;}
 
 header .extras {position: absolute;top: var(--space-below-02);right: var(--side-space-02);}
 header .extras ul {display: block;text-align: right;}
@@ -180,9 +178,6 @@ main .columns.cols-33-66 {grid-template-columns: 1fr 2fr;}
 main .columns.cols-66-33 {grid-template-columns: 2fr 1fr;}
 main .columns.cols-33-33-33 {grid-template-columns: 1fr 1fr 1fr;}
 
-main .bg-color {padding: var(--space-below-01) var(--side-space-01);background:var(--color-02);margin-bottom: var(--space-below-01);}
-main .bg-color * {color:var(--colorlight);}
-
 main .background {padding: var(--space-below-01) var(--side-space-01);background:var(--color-gray-01);margin-bottom: var(--space-below-01);}
 main .background.bg-color-01 {background:var(--color-01);}
 main .background.bg-color-02 {background:var(--color-02);}
@@ -199,7 +194,6 @@ footer * {margin-bottom: 0;color: var(--colorlight);font-weight: 600;}
 footer ul {display: flex;gap: var(--gap-01);}
 footer a {text-decoration: none;}
 footer a:is(:hover, :focus) {text-decoration: underline;}
-
 
 @media screen and (max-width: 781px) {
 
