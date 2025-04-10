@@ -1,3 +1,10 @@
+/**
+* Stylesheet for flatMark theme
+* 
+* @package flatMark
+* @subpackage Theme
+*/
+     
 /* FONTS */
 
 @font-face {
@@ -132,7 +139,7 @@ h3 {font-size: var(--fontsize-l); font-weight: 700;}
 
 h2, h3, p, ul, ol {margin-bottom: var(--space-below-01);}
 
-a {color: var(--color-01); text-decoration: underline;}
+a {color: var(--color-02); text-decoration: underline;}
 a:hover {text-decoration: none;outline: 0;}
 ul {list-style: none;}
 img {border: none;max-width: 100%;height: auto;}

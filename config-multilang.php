@@ -1,12 +1,11 @@
 <?php 
-    /**
-     * Project: FlatMark
-     * File: config-multilang.php
-     * Description: Configuration for multilingual setup (supports multiple languages).
-     * Author: elektrischerwalfisch
-     * License: MIT (or another open-source license)
-     * Version: 1.0
-     */
+/**
+ * Multilingual configuration for flatMark
+ *
+ * Defines language and page loading behavior for multi-language sites.
+ *
+ * @package flatMark
+ */
 
     // Define supported languages (first one is default)
         $supportedLanguages = ['en', 'de'];     

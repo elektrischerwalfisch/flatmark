@@ -1,4 +1,10 @@
 <?php
+/**
+ * Shortcode definitions and handlers.
+ * 
+ * @package flatMark
+ * @subpackage Theme
+ */
 
     function processShortcodes($markdown) {
 

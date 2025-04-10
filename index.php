@@ -1,13 +1,13 @@
 <?php
-    /**
-     * Project: FlatMark
-     * File: index.php
-     * Description: Main entry point for the website. 
-     *              Dynamically loads Markdown content, basic or multilingual configuration and shortcode-settings.
-     * Author: elektrischerwalfisch
-     * License: MIT (or another open-source license)
-     * Version: 1.0
-     */
+/**
+ * Project: flatMark
+ * Version: 1.0
+ * 
+ * Project URI: https://github.com/elektrischerwalfisch/flatmark
+ * Author: elektrischerwalfisch
+ * Author URI: https://www.elektrischerwalfisch.de
+ * License: MIT (or another open-source license)
+ */
 
      // Start output buffering (prevents page to "jump" before everything is loaded)
         ob_start();
@@ -25,7 +25,7 @@
         $requestUri = trim($_SERVER['REQUEST_URI'], '/');
         $uriParts = explode('/', $requestUri);
 
-    // Multilingual setup. If your site is a single-language setup, change 'config-multilang.php' to 'config-basic.php'
+    // Multilingual setup. If your site is a single-language setup, change to 'config-basic.php'
         require 'config-multilang.php';
 
     // Read the content of the requested Markdown file into a string

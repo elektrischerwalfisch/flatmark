@@ -1,12 +1,11 @@
 <?php
-    /**
-     * Project: FlatMark
-     * File: config-basic.php
-     * Description: Configuration for a single-language setup (basic configuration).
-     * Author: elektrischerwalfisch
-     * License: MIT (or another open-source license)
-     * Version: 1.0
-     */
+/**
+ * Basic Configuration for flatMark
+ *
+ * Defines language and page loading behavior for single-language sites.
+ *
+ * @package flatMark
+ */
 
     // Define page language
         $lang = 'de';

@@ -1,3 +1,10 @@
+/**
+* JavaScript functions for flatMark theme
+* 
+* @package flatMark
+* @subpackage Theme
+*/
+
 document.addEventListener("DOMContentLoaded", function() {
     
 // HEADER: generate toggle-button, nav-wrapper and set variables
