@@ -1,5 +1,5 @@
+- other red in logo
 - optimize text on examples page
-x simplify toggle-button js
 - links and buttons (shortcode) styling
 - readme: add from allmanritter-page
 - readme: add info about shortcodes
@@ -8,6 +8,7 @@ x simplify toggle-button js
 - more text, contact page, slick-slider-page as reference?
 - github: license MIT
 
+x simplify toggle-button js
 x rename shortcode langmenu to extras (to use it for other header-extras (phonenumber etc.))
 x fix codeblock for img-rounded on example page
 x columns responsive
