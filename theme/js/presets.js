@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const mainNav = document.querySelector("#main-nav");
 
 // move main-menu into nav-wrapper
-    mainNav.appendChild(document.querySelector('header > ul:not(#lang)'));
+    mainNav.appendChild(document.querySelector('header > ul:not(.extras)'));
 
 // detect screensize
     function updateARIA() {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 // highlight active language in language-switch menu
-    const langSwitch = document.querySelectorAll('#lang a');
+    const langSwitch = document.querySelectorAll('header .extras a');
     const currentLang = document.documentElement.lang;  // Get the lang attribute from the <html> element
 
     langSwitch.forEach(link => {

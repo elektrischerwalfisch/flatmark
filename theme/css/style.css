@@ -1,3 +1,34 @@
+/* VARIABLES */
+
+:root {  --content-width: 900px;}
+:root {  --website-background: #424242;}
+
+:root {  --colorblack: #000000;}
+:root {  --colordark: #666666;}
+:root {  --colorlight: #FFFFFF;}
+
+:root {  --color-01: #DBA901;} 
+:root {  --color-02: #DF3A01;}
+:root {  --color-gray-01: #E6E6E6;}
+
+:root {  --fontsize-s: 12px;}
+:root {  --fontsize-m: 14px;} /* Font Size Default */
+:root {  --fontsize-l: 24px;} 
+:root {  --fontsize-xl: 34px;} 
+:root {  --fontsize-xxl: 64px;} 
+:root {  --lineheight-00: 1.4;} /* Line Height Default */
+:root {  --lineheight-01: 1.2;} 
+
+:root {  --space-below-00: 5px;} 
+:root {  --space-below-01: 15px;} 
+:root {  --space-below-02: 25px;} 
+:root {  --side-space-01: 15px;} 
+:root {  --side-space-02: 25px;} 
+:root {  --gap-01: 15px;} 
+:root {  --animation-01: all 0.4s ease-in-out 0s;} 
+
+
+/* FONTS */
 
 @font-face {
     font-family: 'opensans'; /* Light */
@@ -90,34 +121,6 @@
 }
 
 
-/* VARIABLES */
-:root {  --content-width: 900px;}
-:root {  --website-background: #424242;}
-
-:root {  --colorblack: #000000;}
-:root {  --colordark: #666666;}
-:root {  --colorlight: #FFFFFF;}
-
-:root {  --color-01: #DBA901;} 
-:root {  --color-02: #DF3A01;}
-:root {  --color-gray-01: #E6E6E6;}
-
-:root {  --space-below-00: 5px;} 
-:root {  --space-below-01: 15px;} 
-:root {  --space-below-02: 25px;} 
-:root {  --side-space-01: 15px;} 
-:root {  --side-space-02: 25px;} 
-:root {  --gap-01: 15px;} 
-:root {  --animation-01: all 0.4s ease-in-out 0s;} 
-
-:root {  --fontsize-s: 12px;}
-:root {  --fontsize-m: 14px;} /* Font Size Default */
-:root {  --fontsize-l: 24px;} 
-:root {  --fontsize-xl: 34px;} 
-:root {  --fontsize-xxl: 64px;} 
-:root {  --lineheight-00: 1.4;} /* Line Height Default */
-:root {  --lineheight-01: 1.2;} 
-
 * {margin: 0;padding: 0;box-sizing: border-box;}
 header, footer, section, article, nav {display: block;}
 
@@ -141,18 +144,20 @@ hr {height: 1px;border: none;width: 100%;background: var(--color-01);margin-bott
 table {border-collapse: collapse;border-spacing: 0;}
 
 header ul {display: none;} /* prevent output of menu-lists before the are rendered in /theme/js/presets.js */
-header {min-height: 143px; /* set min-height to prevent jump on first pageload */ position: relative;padding: var(--space-below-02) var(--side-space-02) var(--space-below-01) var(--side-space-02) ;}
-header img[alt=Logo] {width: 64px;display: block;float: left;margin-right: 10px;}
+header {min-height: 143px; /* set min-height to prevent jump on first pageload */ display: flex;flex-wrap: wrap; position: relative;padding: var(--space-below-02) var(--side-space-02) var(--space-below-01) var(--side-space-02) ;}
+
+header p {margin-bottom: 0;color: var(--colorblack);width: calc(100% - 74px);}
+header p:has(img) {width: auto;}
+header p:has(img) img {width: 64px;display: block;margin-right: 10px;}
 header > p > a {color: var(--colorblack);display: block;text-decoration: none;font-size: var(--fontsize-xl);line-height: var(--lineheight-01);font-weight: 500;}
-header p {margin-bottom: 0;color: var(--colorblack);}
 
-header #lang {position: absolute;top: var(--space-below-02);right: var(--side-space-02);}
-header #lang ul {display: block;text-align: right;}
-header #lang li a {color: var(--color-01);font-size: var(--fontsize-s);font-weight: 600;text-decoration: none;text-transform: uppercase;}
-header #lang li a:hover {text-decoration: underline;}
-header #lang li a.active {color: var(--colorblack);}
+header .extras {position: absolute;top: var(--space-below-02);right: var(--side-space-02);}
+header .extras ul {display: block;text-align: right;}
+header .extras li a {color: var(--color-01);font-size: var(--fontsize-s);font-weight: 600;text-decoration: none;text-transform: uppercase;}
+header .extras li a:hover {text-decoration: underline;}
+header .extras li a.active {color: var(--colorblack);}
 
-header #main-nav {clear: both;padding-top: var(--space-below-01);}
+header #main-nav {padding-top: var(--space-below-01);width: 100%;}
 header #main-nav ul {display: flex;background: var(--color-01);margin-bottom: 0;}
 header #main-nav ul a {display: block;font-size: var(--fontsize-m);font-weight: 700;color: var(--colorlight); text-decoration: none;padding: 0 var(--side-space-01);border-bottom: 2px solid var(--color-01);border-top: 2px solid var(--color-01);}
 header #main-nav ul a:is(:hover, :focus, .active) {background: var(--colorlight);color: var(--color-01);    outline: 0;} 
@@ -187,11 +192,8 @@ main .background:is(.bg-color-01, .bg-color-02) * {color:var(--colorlight);}
 main .img-rounded {aspect-ratio: 1/1;border-radius: 50%;border: var(--space-below-01) solid var(--colorlight);overflow: hidden;margin-top: calc(0px - var(--space-below-02));}
 main .img-rounded img {object-fit: cover;width: 100%;height: 100%;display: block;}
 
-main code {
-    font-family: courier 'Courier New', Courier, monospace;font-size: var(--fontsize-m);
-    background: var(--color-gray-01);color: var(--colordark);}
-main div.code code {display: block;white-space: pre-wrap;margin-bottom: var(--space-below-01);
-    padding: var(--space-below-01) var(--space-below-01);border-radius: 10px;}
+main code {font-family: courier 'Courier New', Courier, monospace;font-size: var(--fontsize-m);background: var(--color-gray-01);color: var(--colordark);}
+main div.code code {display: block;white-space: pre-wrap;margin-bottom: var(--space-below-01);padding: var(--space-below-01) var(--space-below-01);border-radius: 10px;}
 
 footer {display: flex;justify-content: space-between;}
 footer * {margin-bottom: 0;color: var(--colorlight);font-weight: 600;}
@@ -204,11 +206,11 @@ footer a:is(:hover, :focus) {text-decoration: underline;}
 
     #wrapper {padding: 0;}
 
-    header #lang {top: 0;}
-    header #lang ul {display: flex; gap: 10px;}
+    header .extras {top: 0;}
+    header .extras ul {display: flex; gap: 10px;}
 
-    header p {margin-bottom: var(--side-space-01);}
-    header #toggle-nav {cursor: pointer;position: relative;display: block;border:none;background: var(--color-01);padding: 4px 0 4px 14px;clear: both;width: 100%;}
+    header p {margin-bottom: var(--space-below-01);}
+    header #toggle-nav {cursor: pointer;position: relative;display: block;border:none;background: var(--color-01);padding: 4px 0 4px 14px;width: 100%;}
     header #toggle-nav span {background: var(--colorlight);display: block;width: 36px;height: 4px;margin: 6px 0;transition: var(--animation-01);}
     header.menu-active #toggle-nav span {opacity: 0;transform-origin: 4px center;}
     header.menu-active #toggle-nav span:first-child {opacity: 1;transform: rotate(45deg);}
@@ -220,7 +222,6 @@ footer a:is(:hover, :focus) {text-decoration: underline;}
     header.menu-active #main-nav ul li {height: 40px!important;}
 
     h1 {font-size: var(--fontsize-xl);}
-
 
     footer {display:block;padding: 0 var(--side-space-02) var(--space-below-01) var(--side-space-02);}
     footer ul {display:block;padding-top: var(--space-below-01);}

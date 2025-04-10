@@ -15,12 +15,12 @@
             return $placeholder;
         }, $markdown);
 
-    // Shortcode: language menu
+    // Shortcode: extras for header
         $pattern = '/\{extras\}(.*?)\{\/extras\}/s';
         $markdown = preg_replace_callback($pattern, function ($matches) use ($Parsedown) {
-            // Process Markdown inside the language menu
-            $langLinks = $Parsedown->text($matches[1]);
-            return '<div id="lang">' . $langLinks . '</div>';
+            // Process Markdown inside
+            $extrasContent = $Parsedown->text($matches[1]);
+            return '<div class="extras">' . $extrasContent . '</div>';
         }, $markdown);
     
     // Shortcode: year (current year)

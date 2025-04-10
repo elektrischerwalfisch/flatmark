@@ -4,6 +4,7 @@
 {/extras}
 
 ![Logo](/files/logo.gif)
+
 [flatMark](/de)
 A lightweight, flat-file Markdown-based website generator
 
