@@ -1,5 +1,5 @@
 ---
-- styling numbered list
+- Optimise intro-text
 - Markdown-page?
 - optimize text on examples page
 - links and buttons (shortcode) styling
@@ -9,6 +9,7 @@
 - githup: best settings for publication?
 
 ---
+x styling numbered list
 x shortcode to directly include readme on a page!
 x readme: add paragraph "flatmark as cms" to readme
 x rename/divide examples-page to shortcodes and markdown
