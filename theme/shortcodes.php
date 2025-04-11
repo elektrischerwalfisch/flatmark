@@ -77,14 +77,19 @@
             return '<div class="background ' . $bgClass . '">' . $bgHtml . '</div>';
         }, $markdown);
 
-
-
     // Shortcode: img rounded
         $pattern = '/\{img-rounded\}(.*?)\{\/img-rounded\}/s';
         $markdown = preg_replace_callback($pattern, function ($matches) use ($Parsedown) {
             // Process Markdown 
             $imgRounded = $Parsedown->text($matches[1]);
             return '<div class="img-rounded">' . $imgRounded . '</div>';
+        }, $markdown);
+
+    // Shortcode: mail link
+        $pattern = '/\{mail\}(.*?)\{\/mail\}/s';
+        $markdown = preg_replace_callback($pattern, function ($matches) {
+            $linkText = trim($matches[1]);
+            return '<a href="../theme/mailto.php">' . htmlspecialchars($linkText) . '</a>';
         }, $markdown);
 
     // Shortcode: output readme-file
