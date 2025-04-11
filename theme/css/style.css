@@ -137,7 +137,7 @@ h1 {font-size: var(--fontsize-xxl); font-weight: 800;color: var(--colordark);mar
 h2 {font-size: var(--fontsize-xl); font-weight: 800;color: var(--color-01);}
 h3 {font-size: var(--fontsize-l); font-weight: 700;}
 
-h2, h3, p, ul, ol {margin-bottom: var(--space-below-01);}
+h2, h3, p, ul, ol, table {margin-bottom: var(--space-below-01);}
 
 a {color: var(--color-02); text-decoration: underline;}
 a:hover {text-decoration: none;outline: 0;}
@@ -173,8 +173,9 @@ main {padding: 0 var(--side-space-02) var(--space-below-01) var(--side-space-02)
 main > h1 {background: var(--color-02);color: var(--colorlight);padding: var(--space-below-00) var(--side-space-01);text-align: right;}
 main ul {list-style: disc;padding-left: var(--side-space-01);}
 main table {width: 100%;}
+main table tr {border-bottom: 1px solid var(--color-gray-01);}
 main table th,
-main table td {text-align: left;border: none;min-width: 100px;vertical-align: top;padding-bottom: var(--space-below-01);}
+main table td {text-align: left;border: none;min-width: 100px;vertical-align: top;padding: var(--space-below-00) 0;}
 main table tr > td:first-child {font-weight: 600;}
 
 main .columns {display: grid;grid-template-rows: auto;gap: var(--gap-01);box-sizing: border-box;}
@@ -194,7 +195,8 @@ main .img-rounded {aspect-ratio: 1/1;border-radius: 50%;border: var(--space-belo
 main .img-rounded img {object-fit: cover;width: 100%;height: 100%;display: block;}
 
 main code {font-family: courier 'Courier New', Courier, monospace;font-size: var(--fontsize-m);background: var(--color-gray-01);color: var(--colordark);}
-main div.code code {display: block;white-space: pre-wrap;margin-bottom: var(--space-below-01);padding: var(--space-below-01) var(--space-below-01);border-radius: 10px;}
+
+#main pre:has(code) {word-break: normal;word-wrap: normal;overflow: scroll;background: var(--color-gray-01);padding: var(--space-below-01) var(--space-below-01);border-radius: 10px;margin-bottom: var(--space-below-01);}
 
 footer {display: flex;justify-content: space-between;}
 footer * {margin-bottom: 0;color: var(--colorlight);font-weight: 600;}

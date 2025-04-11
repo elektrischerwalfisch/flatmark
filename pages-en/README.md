@@ -112,8 +112,25 @@ You can edit this file to change existing shortcodes or add even more.
 - Themes: Modify /theme/css/style.css for styling.
 - Header/Footer: Edit 01-header.md and 02-footer.md in each language folder.
 
-## flatmark as CMS
-...
+## Use flatmark as a CMS
+Lets first define the requirements for a simple Content-Management-System (CMS).  
+**You would like to do the following directly in your Browser:**
+- Login via username & password
+- Edit website content in a text-editor
+- Upload/Manage files
+- Change settings
+
+Even if flatMark itself does not provide that, you might already have resources at hand which you can use to do exactly that!
+- **Webhoster**  
+Your webhoster might already provide a seperate WebFTP-Login with a build-in Text-editor.   
+Example: [all-inkl webftp](https://webftp.all-inkl.com/)
+- **Nextcloud**  
+If your are using Nextcloud and the default-plugin "External Storage", you can use that to acces your flatMark-Installation via FTP. For Markdown-files Nextcloud even provides a WYSIWYG-Editor by default.  
+Website: [Nextcloud](https://nextcloud.com/)
+- **Tinyfilemanager**  
+If you do not have none of the options above, you still can install this simple file-manager which is actually just one single php-file. Just upload it to the root-folder of your flatMark-Installation and acces it via your browser!  
+(Do not forget to change the password in that file before you upload it)  
+Website: [tinyfilemanager](https://tinyfilemanager.github.io/)
 
 ## License
 FlatMark is released under the MIT License.

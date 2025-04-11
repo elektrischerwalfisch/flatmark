@@ -17,7 +17,7 @@
             // Generate a unique placeholder
             $placeholder = '[[[CODEBLOCK_' . count($codeBlocks) . ']]]';
             // Store the raw code block content
-            $codeBlocks[$placeholder] = '<div class="code"><code>' . htmlspecialchars($matches[1]) . '</code></div>';
+            $codeBlocks[$placeholder] = '<pre><code>' . htmlspecialchars($matches[1]) . '</code></pre>';
             return $placeholder;
         }, $markdown);
 
