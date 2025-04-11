@@ -11,7 +11,7 @@
     // Initialize Parsedown
         $Parsedown = new Parsedown();
 
-    // Shortcode: code
+    // Shortcode: code 1/2
         $codeBlocks = [];
         $markdown = preg_replace_callback('/\{code\}(.*?)\{\/code\}/s', function ($matches) use (&$codeBlocks) {
             // Generate a unique placeholder
@@ -105,12 +105,13 @@
         }, $markdown);
 
 
-    // Shortcode: code - Restore code blocks (so no shortcode inside was processed)
+    // Shortcode: code 2/2 - restore code blocks (so no shortcode inside was processed)
         foreach ($codeBlocks as $placeholder => $codeBlock) {
             $markdown = str_replace($placeholder, $codeBlock, $markdown);
         }
 
         return $markdown;
+
     }
 
 ?>
