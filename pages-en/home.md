@@ -8,7 +8,7 @@
 {/img-rounded}
 {columns-seperator}
 # flatMark
-A minimal PHP-based flat-file CMS that gives developers full control. Content is written in Markdown, enhanced with flexible shortcodes for layouts, styling, and dynamic elements. No database, no build step — just Markdown, HTML, and your creativity.
+No database required, no overhead in sight — just Markdown and a sprinkle of PHP. Ideal for small websites, portfolios, or documentation, it delivers content directly from the filesystem. Just edit your Markdown files and go.
 {/background}{/columns}
 
 {columns 33-66}

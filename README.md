@@ -10,7 +10,7 @@
 - Auto-parses **Markdown** to HTML using [Parsedown](https://parsedown.org/)  
 - **Custom meta fields** for title, description, and robots meta tag for each site 
 - Provides simple **Shortcodes** to arrange and style your content (e.g. columns, different backgrounds)
-- Basic **Theme** which you can customize and enhance  
+- Basic, responsive **Theme** which you can customize and enhance  
 
 ## How It Works  
 FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-XX` for multilingual sites) into HTML pages.  
@@ -36,11 +36,6 @@ Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https:/
     │── .htaccess               # URL rewriting
     │── README.md               # Documentation
 
-
-## Requirements  
-- PHP 7.4+  
-- Apache/Nginx with mod_rewrite enabled 
-
 ## Installation  
 1. **Download** the latest release of flatMark which contains a simple example-page
 2. **Upload** the files to your web server.  
@@ -48,7 +43,11 @@ Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https:/
 4. **Edit content** inside `/pages` (or `/pages-XX` for multilingual sites).  
 5. Done! Your site is ready.  
 
-## Configuration  
+### Requirements  
+- PHP 7.4+  
+- Apache/Nginx with mod_rewrite enabled 
+
+### Configuration  
 Set up **single** or **multi-language setup** in `index.php`:  
 
 ```php
@@ -58,7 +57,7 @@ require 'config-multilang.php';
 ```
 After that you can also delete the config-file which you are not using - only one of the two config-files is needed.
 
-## Defaults: Header, Footer, Homepage, 404-page
+### Defaults: Header, Footer, Homepage, 404-page
 
 Each pages-folder must contain at least these files for the website to function:  
 
@@ -75,7 +74,7 @@ This file is the default startpoint of your website.
 Edit this file to change the error-message which is shown if a page is not found. 
 
 
-## Meta Information (Title, Description & Robots)
+## Meta information (Title, Description & Robots)
 Each Markdown page can include optional meta information using HTML comments at the top of the file.
 These values will be automatically extracted and used in the <head> section of the generated HTML page.
 
@@ -112,12 +111,11 @@ An example-page with all shortcodes is provided with the installation: `/pages-e
 
 
 ## Customization
-- Themes: Modify /theme/css/style.css for styling.
-- Header/Footer: Edit 01-header.md and 02-footer.md in each language folder.
+All customizable parts of flatMark are located in the `theme/` folder. This includes the main stylesheet (`theme/css/style.css`), a JavaScript file for interactive behavior (`theme/js/presets.js`), and the `theme/shortcodes.php` file where custom shortcodes can be defined. You can freely modify these files to match your design and functionality needs. Additional assets like images, fonts, or scripts can also be placed in this folder to keep everything neatly organized in one place.
 
-## flatmark as CMS
-Lets first define the requirements for a simple Content-Management-System (CMS).  
-**You would like to do the following directly in your Browser:**
+
+## flatMark as CMS
+If you are not a programmer and used to work with FTP-client and texteditor you might prefer a Content-Management-System (CMS) to edit your website. So how would you define a simple CMS? Basically it would allow you to do the following directly in your Browser:
 - Login via username & password
 - Edit website content in a text-editor
 - Upload/Manage files
@@ -133,7 +131,9 @@ Website: [Nextcloud](https://nextcloud.com/)
 - **Tinyfilemanager**  
 If you do not have none of the options above, you still can install this simple file-manager which is actually just one single php-file. Just upload it to the root-folder of your flatMark-Installation and acces it via your browser!  
 (Do not forget to change the password in that file before you upload it)  
-Website: [tinyfilemanager](https://tinyfilemanager.github.io/)
+Website: [tinyfilemanager](https://tinyfilemanager.github.io/)  
+
+These are only 3 options how you can access your flatMark-Installation, but there might be more.
 
 ## License
 FlatMark is released under the MIT License.

@@ -111,7 +111,7 @@
 :root {  --color-gray-01: #E6E6E6;}
 
 :root {  --fontsize-s: 12px;}
-:root {  --fontsize-m: 14px;} /* Font Size Default */
+:root {  --fontsize-m: 16px;} /* Font Size Default */
 :root {  --fontsize-l: 24px;} 
 :root {  --fontsize-xl: 34px;} 
 :root {  --fontsize-xxl: 64px;} 
@@ -157,7 +157,7 @@ header > p > a {color: var(--colorblack);display: block;text-decoration: none;fo
 
 header .extras {position: absolute;top: var(--space-below-02);right: var(--side-space-02);}
 header .extras ul {display: block;text-align: right;}
-header .extras li a {color: var(--color-01);font-size: var(--fontsize-s);font-weight: 600;text-decoration: none;text-transform: uppercase;}
+header .extras li a {color: var(--color-01);font-size: var(--fontsize-s);line-height: 1.6;font-weight: 600;text-decoration: none;text-transform: uppercase;}
 header .extras li a:hover {text-decoration: underline;}
 header .extras li a.active {color: var(--colorblack);}
 
