@@ -1,5 +1,6 @@
 ---
-- Optimise intro-text
+- GoogleFonts?
+- Optimise intro-text and home-description
 - Markdown-page?
 - optimize text on examples page
 - links and buttons (shortcode) styling

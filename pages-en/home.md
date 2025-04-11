@@ -1,5 +1,5 @@
 <!-- title: flatMark -->
-<!-- description: Description of homepage -->
+<!-- description: A lightweight, flat-file Markdown-based website generator -->
 <!-- robots: index, follow -->
 
 {background color-02}{columns 33-66}
