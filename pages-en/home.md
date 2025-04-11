@@ -8,7 +8,7 @@
 {/img-rounded}
 {columns-seperator}
 # flatMark
-dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+A minimal PHP-based flat-file CMS that gives developers full control. Content is written in Markdown, enhanced with flexible shortcodes for layouts, styling, and dynamic elements. No database, no build step — just Markdown, HTML, and your creativity.
 {/background}{/columns}
 
 {columns 33-66}
@@ -17,8 +17,4 @@ dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invid
 ![Pic](/files/example-pic-03.jpg)
 {/columns}
 
-{columns 50-50}
-dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
-{columns-seperator}
-dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
-{/columns}
+{readme}

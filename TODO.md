@@ -1,16 +1,19 @@
 ---
-- styling of readme-page (codeblocks, numbered list, table)
-- rename/divide examples-page to shortcodes and markdown
-- other red in logo
+- styling numbered list
+- Markdown-page?
 - optimize text on examples page
 - links and buttons (shortcode) styling
 - readme: add paragraph "customisation" to readme
-- readme: add paragraph "flatmark as cms" to readme
 - more text, contact page, slick-slider-page as reference?
 - github: license MIT
 - githup: best settings for publication?
 
 ---
+x shortcode to directly include readme on a page!
+x readme: add paragraph "flatmark as cms" to readme
+x rename/divide examples-page to shortcodes and markdown
+x styling of readme-page (codeblocks, numbered list, table)
+x other red in logo
 x readme: add from allmanritter-page
 x readme: add info about shortcodes
 x readme: add paragraph about basic and multilang-configuration

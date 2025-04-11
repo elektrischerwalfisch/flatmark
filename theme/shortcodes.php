@@ -87,6 +87,18 @@
             return '<div class="img-rounded">' . $imgRounded . '</div>';
         }, $markdown);
 
+    // Shortcode: output readme-file
+        $pattern = '/\{readme\}/s';
+        $markdown = preg_replace_callback($pattern, function () use ($Parsedown) {
+            $readmePath = __DIR__ . '/../README.md'; // path to root folder
+            if (file_exists($readmePath)) {
+                $readmeContent = file_get_contents($readmePath);
+                return '<div class="readme">' . $Parsedown->text($readmeContent) . '</div>';
+            } else {
+                return '<div class="readme"><em>README not found.</em></div>';
+            }
+        }, $markdown);
+
 
     // Shortcode: code - Restore code blocks (so no shortcode inside was processed)
         foreach ($codeBlocks as $placeholder => $codeBlock) {

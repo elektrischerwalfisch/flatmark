@@ -14,6 +14,7 @@
 
 ## How It Works  
 FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-XX` for multilingual sites) into HTML pages.  
+Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax/)  
 
 ### URL Structure  
 
@@ -51,8 +52,9 @@ FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-
 Set up **single** or **multi-language setup** in `index.php`:  
 
 ```php
-    // Default: multilingual setup. If your site is a single-language setup, change 'config-multilang.php' to 'config-basic.php' in the next line 
-        require 'config-multilang.php';
+// Default: multilingual setup
+// If your site is a single-language setup, change 'config-multilang.php' to 'config-basic.php' in the next line 
+require 'config-multilang.php';
 ```
 After that you can also delete the config-file which you are not using - only one of the two config-files is needed.
 
