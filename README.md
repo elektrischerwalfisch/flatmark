@@ -8,7 +8,7 @@
 - Just requires basic php, no database needed
 - Supports **single-language** and **multi-language** setups  
 - Auto-parses **Markdown** to HTML using [Parsedown](https://parsedown.org/)  
-- **Custom meta fields** for title, description, and robots meta tag for each site 
+- **Meta information** for title, description, and robots meta tag for each site 
 - Provides simple **Shortcodes** to arrange and style your content (e.g. columns, different backgrounds)
 - Basic, responsive **Theme** which you can customize and enhance  
 
