@@ -25,7 +25,7 @@
         $requestUri = trim($_SERVER['REQUEST_URI'], '/');
         $uriParts = explode('/', $requestUri);
 
-    // Multilingual setup. If your site is a single-language setup, change to 'config-basic.php'
+    // Default: multilingual setup. If your site is a single-language setup, change 'config-multilang.php' to 'config-basic.php' in the next line 
         require 'config-multilang.php';
 
     // Read the content of the requested Markdown file into a string
