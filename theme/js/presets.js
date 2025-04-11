@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // HEADER: highlight active page in main menu
     const currentUrl = window.location.href;
     const currentPath = window.location.pathname;
-    const menuLinks = document.querySelectorAll('header > ul a');
+    const menuLinks = document.querySelectorAll('header nav ul a');
     menuLinks.forEach((link) => {
         // Check if the href matches the current URL or pathname
         if (link.href === currentUrl || link.pathname === currentPath) {
