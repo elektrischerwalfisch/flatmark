@@ -9,6 +9,5 @@
 A lightweight, flat-file Markdown-based website generator
 
 - [Home](/en/home)
-- [Shortcodes](/en/shortcodes)
-- [Markdown](/en/markdown)
+- [Shortcode-Examples](/en/shortcode-examples)
 - [Contact](/en/contact)

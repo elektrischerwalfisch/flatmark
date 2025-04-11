@@ -1,4 +1,4 @@
-# Shortcodes
+# Shortcode-Examples
 
 These shortcodes are available by default in the flatMark-theme:
 
@@ -23,6 +23,14 @@ These shortcodes are available by default in the flatMark-theme:
 
 {year}
     Output of the current year (Can be used for copyright in 02-footer.md)
+
+{code}
+    Used only in this documentation to display unrendered shortcodes in code-block
+
+{readme}
+    Outputs the readme.md from the root-folder. 
+    Used on the default-page /pages-en/home.md
+
 
 {/code}
 

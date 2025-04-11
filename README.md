@@ -52,7 +52,8 @@ Set up **single** or **multi-language setup** in `index.php`:
 
 ```php
 // Default: multilingual setup
-// If your site is a single-language setup, change 'config-multilang.php' to 'config-basic.php' in the next line 
+// If your site is a single-language setup, 
+// change 'config-multilang.php' to 'config-basic.php' in the next line 
 require 'config-multilang.php';
 ```
 After that you can also delete the config-file which you are not using - only one of the two config-files is needed.
@@ -74,7 +75,7 @@ This file is the default startpoint of your website.
 Edit this file to change the error-message which is shown if a page is not found. 
 
 
-## Meta information (Title, Description & Robots)
+## Meta information
 Each Markdown page can include optional meta information using HTML comments at the top of the file.
 These values will be automatically extracted and used in the <head> section of the generated HTML page.
 
@@ -88,9 +89,9 @@ Example Markdown file (about.md) with meta information:
 
     We are committed to providing the best services...
 
-- title → Sets the `<title>` of the page. Defaults to the filename if not provided.
-- description → Used for the `<meta name="description">` tag (important for SEO). Defaults to an empty string if not set.
-- robots → Controls search engine indexing (index, follow / noindex, nofollow). Defaults to index, follow.
+- **title** → Sets the `<title>` of the page. Defaults to the filename if not provided.
+- **description** → Used for the `<meta name="description">` tag (important for SEO). Defaults to an empty string if not set.
+- **robots** → Controls search engine indexing (index, follow / noindex, nofollow). Defaults to index, follow.
 
 ## Shortcodes
 flatMark supports simple shortcodes for structured content. Some examples:
@@ -107,7 +108,7 @@ flatMark supports simple shortcodes for structured content. Some examples:
 
 These shortcodes are part of the theme and are all located in the file `/theme/shortcodes.php`.
 You can edit this file to change existing shortcodes or add even more.
-An example-page with all shortcodes is provided with the installation: `/pages-en/shortcodes.md`
+An example-page with all shortcodes is provided with the installation: `/pages-en/shortcode-examples.md`
 
 
 ## Customization
