@@ -1,6 +1,6 @@
 # flatMark
 
-*A lightweight, flat-file Markdown-based site generator*
+*A lightweight, flat-file Markdown-based website generator*
 
 ## Features  
 - Lightweight and fast
