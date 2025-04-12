@@ -85,13 +85,6 @@
             return '<div class="img-rounded">' . $imgRounded . '</div>';
         }, $markdown);
 
-    // Shortcode: mail link
-        $pattern = '/\{mail\}(.*?)\{\/mail\}/s';
-        $markdown = preg_replace_callback($pattern, function ($matches) {
-            $linkText = trim($matches[1]);
-            return '<a href="../theme/mailto.php">' . htmlspecialchars($linkText) . '</a>';
-        }, $markdown);
-
     // Shortcode: output readme-file
         $pattern = '/\{readme\}/s';
         $markdown = preg_replace_callback($pattern, function () use ($Parsedown) {
@@ -103,7 +96,6 @@
                 return '<div class="readme"><em>README not found.</em></div>';
             }
         }, $markdown);
-
 
     // Shortcode: code 2/2 - restore code blocks (so no shortcode inside was processed)
         foreach ($codeBlocks as $placeholder => $codeBlock) {
