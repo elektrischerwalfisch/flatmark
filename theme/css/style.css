@@ -168,7 +168,7 @@ header #main-nav ul a:is(:hover, :focus, .active) {background: var(--colorlight)
 
 #toggle-nav {display: none;}
 
-main {padding: 0 var(--side-space-02) var(--space-below-01) var(--side-space-02);margin-bottom: var(--space-below-00);}
+main {padding: 0 var(--side-space-02) var(--space-below-01) var(--side-space-02);margin-bottom: var(--space-below-01);}
 
 main > h1 {background: var(--color-02);color: var(--colorlight);padding: var(--space-below-00) var(--side-space-01);text-align: right;}
 main ul {padding-left: var(--side-space-01);list-style: disc;}
@@ -203,11 +203,9 @@ main code {font-family: courier 'Courier New', Courier, monospace;font-size: var
 #main .readme h1,
 #main .readme em {display: none;}
 
-footer {display: flex;justify-content: space-between;}
-footer * {margin-bottom: 0;color: var(--colorlight);font-weight: 600;}
-footer ul {display: flex;gap: var(--gap-01);}
-footer a {text-decoration: none;}
-footer a:is(:hover, :focus) {text-decoration: underline;}
+footer {text-align: center;}
+footer * {color: var(--colorlight);}
+footer a:is(:hover, :focus) {text-decoration: none;}
 
 @media screen and (max-width: 781px) {
 
@@ -229,9 +227,6 @@ footer a:is(:hover, :focus) {text-decoration: underline;}
     header.menu-active #main-nav ul li {height: 40px!important;}
 
     h1 {font-size: var(--fontsize-xl);}
-
-    footer {display:block;padding: 0 var(--side-space-02) var(--space-below-01) var(--side-space-02);}
-    footer ul {display:block;padding-top: var(--space-below-01);}
 
 }
 

@@ -1,4 +1,6 @@
-© {year} flatMark  
+© {year} This is a demo site for the flatMark project.  
+  
+flatMark was created by [elektrischerwalfisch](/https://www.elektrischerwalfisch.de) and is licensed under the MIT License.  
+[View source code of this site](https://github.com/elektrischerwalfisch/flatmark)  
 
-- [Legal notice](/en/legal-notice)
-- [PrivacyPolicy](/en/privacy-policy)
+Site operated by [elektrischerwalfisch](/en/impressum)
