@@ -13,8 +13,8 @@
         ob_start();
 
     // Include shortcode functions (if file exists)
-        if (file_exists('theme/shortcodes.php')) {
-            require 'theme/shortcodes.php';
+        if (file_exists('theme/functions.php')) {
+            require 'theme/functions.php';
         }
     
     // Include Parsedown
@@ -72,7 +72,7 @@
             $footerContent = $Parsedown->text($footerContent);
         }
 
-    // Apply theme/shortcodes.php before converting to HTML (if function exists)
+    // Apply theme/functions.php before converting to HTML (if function exists)
         if (function_exists('processShortcodes')) {
             $markdown = processShortcodes($markdown);
         }

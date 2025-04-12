@@ -109,13 +109,13 @@ flatMark supports simple shortcodes for structured content. You can see all shor
     This content has a colored background.
     {/background}
   
-These shortcodes are part of the theme and are all located in the file `/theme/shortcodes.php`.
+These shortcodes are part of the theme and are all located in the file `/theme/functions.php`.
 You can edit this file to change existing shortcodes or add even more.
 An example-page with all shortcodes is provided with the installation: `/pages-en/shortcode-examples.md`
 
 
 ## Customization
-All customizable parts of flatMark are located in the `theme/` folder. This includes the main stylesheet (`theme/css/style.css`), a JavaScript file for interactive behavior (`theme/js/presets.js`), and the `theme/shortcodes.php` file where custom shortcodes can be defined. You can freely modify these files to match your design and functionality needs. Additional assets like images, fonts, or scripts can also be placed in this folder to keep everything neatly organized in one place.
+All customizable parts of flatMark are located in the `theme/` folder. This includes the main stylesheet (`theme/css/style.css`), a JavaScript file for interactive behavior (`theme/js/presets.js`), and the `theme/functions.php` file where custom shortcodes can be defined. You can freely modify these files to match your design and functionality needs. Additional assets like images, fonts, or scripts can also be placed in this folder to keep everything neatly organized in one place.
 
 
 ## flatMark as CMS
