@@ -1,6 +1,6 @@
-© {year} This is a demo site for the flatMark project.  
+© {year} Dies ist eine Demo Website für das Projekt flatMark.
   
-flatMark was created by [elektrischerwalfisch](/https://www.elektrischerwalfisch.de) and is licensed under the MIT License.  
-[View source code of this site](https://github.com/elektrischerwalfisch/flatmark)  
+flatMark wurde entwickelt von [elektrischerwalfisch](/https://www.elektrischerwalfisch.de) und ist lizensiert unter der MIT License.  
+[Quellcode dieser website ansehen](https://github.com/elektrischerwalfisch/flatmark)  
 
-Site operated by [elektrischerwalfisch](/en/impressum)
+Diese Website wird betrieben von [elektrischerwalfisch](/en/impressum)

@@ -141,3 +141,8 @@ These are only 3 options how you can access your flatMark-Installation, but ther
 
 ## License
 FlatMark is released under the MIT License.
+
+## Credits
+This project uses;
+- [Parsedown](https://parsedown.org) — MIT License
+- Open Sans font — [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)

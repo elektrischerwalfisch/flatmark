@@ -6,8 +6,7 @@
 ![Logo](/files/logo.gif)
 
 [flatMark](/de)
-A lightweight, flat-file Markdown-based site generator
+Ein minimalistischer Website-Generator auf Markdown-Basis
 
 - [Home](/de/home)
-- [Über uns](/de/ueber-uns)
-- [Kontakt](/de/kontakt)
+- [Download](https://github.com/elektrischerwalfisch/flatmark)
