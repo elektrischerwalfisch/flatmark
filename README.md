@@ -13,8 +13,11 @@
 - Basic, responsive **Theme** which you can customize and enhance  
 
 ## How It Works  
-FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-XX` for multilingual sites) into HTML pages.  
-Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax/)  
+FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-XX` for multilingual sites) into HTML pages. Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax/)  
+
+## Demo
+[Demo Website](https://flatmark.elektrischerwalfisch.de/en)  
+This demo is an exact copy of this repository and doubles as the documentation site.
 
 ### URL Structure  
 
@@ -94,7 +97,7 @@ Example Markdown file (about.md) with meta information:
 - **robots** → Controls search engine indexing (index, follow / noindex, nofollow). Defaults to index, follow.
 
 ## Shortcodes
-flatMark supports simple shortcodes for structured content. Some examples:
+flatMark supports simple shortcodes for structured content. You can see all shortcodes in action on the Demo Website: [Shortcode-Examples](https://flatmark.elektrischerwalfisch.de/en/shortcode-examples). Here are just two examples:
 
     {columns 50-50}
     Left column
@@ -105,7 +108,7 @@ flatMark supports simple shortcodes for structured content. Some examples:
     {background color-01}
     This content has a colored background.
     {/background}
-
+  
 These shortcodes are part of the theme and are all located in the file `/theme/shortcodes.php`.
 You can edit this file to change existing shortcodes or add even more.
 An example-page with all shortcodes is provided with the installation: `/pages-en/shortcode-examples.md`

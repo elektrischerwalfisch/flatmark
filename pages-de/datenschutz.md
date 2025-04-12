@@ -1,5 +1,0 @@
-<!-- robots: noindex, nofollow -->
-
-# Datenschutzerklärung
-
-...
