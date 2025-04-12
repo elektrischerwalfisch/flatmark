@@ -12,21 +12,20 @@
 - Provides simple **Shortcodes** to arrange and style your content (e.g. columns, different backgrounds)
 - Basic, responsive **Theme** which you can customize and enhance  
 
+## Demo
+The [Demo Website](https://flatmark.elektrischerwalfisch.de/en) is an exact copy of the [GitHub Repository](https://github.com/elektrischerwalfisch/flatmark) and doubles as the documentation site. 
+
 ## How It Works  
 FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-XX` for multilingual sites) into HTML pages. Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax/)  
 
-## Demo
-[Demo Website](https://flatmark.elektrischerwalfisch.de/en)  
-This demo is an exact copy of this repository and doubles as the documentation site.
-
-### URL Structure  
+## URL Structure  
 
 | Setup           | Example URL | Maps to File          |
 |-----------------|-------------|-----------------------|
 | Single Language | `/about`    | `/pages/about.md`     |
 | Multi-Language  | `/en/about` | `/pages-en/about.md`  |
 
-### Folder Structure
+## Folder Structure
 
     /flatmark/
     │── /files/                 # Files (images, pdfs etc.)
@@ -46,11 +45,11 @@ This demo is an exact copy of this repository and doubles as the documentation s
 4. **Edit content** inside `/pages` (or `/pages-XX` for multilingual sites).  
 5. Done! Your site is ready.  
 
-### Requirements  
+## Requirements  
 - PHP 7.4+  
 - Apache/Nginx with mod_rewrite enabled 
 
-### Configuration  
+## Configuration  
 Set up **single** or **multi-language setup** in `index.php`:  
 
 ```php
@@ -61,7 +60,7 @@ require 'config-multilang.php';
 ```
 After that you can also delete the config-file which you are not using - only one of the two config-files is needed.
 
-### Defaults: Header, Footer, Homepage, 404-page
+## Defaults: Header, Footer, Homepage, 404-page
 
 Each pages-folder must contain at least these files for the website to function:  
 
