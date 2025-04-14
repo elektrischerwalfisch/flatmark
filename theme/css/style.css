@@ -193,7 +193,8 @@ main .background.bg-color-02 {background:var(--color-02);}
 main .background:is(.bg-color-01, .bg-color-02) * {color:var(--colorlight);}
 main .background:is(.bg-color-01, .bg-color-02) p {font-weight: 600;}
 
-main .img-rounded {aspect-ratio: 1/1;border-radius: 50%;border: var(--space-below-01) solid var(--colorlight);overflow: hidden;margin-top: calc(0px - var(--space-below-02));}
+main .img-rounded {aspect-ratio: 1/1;border-radius: 50%;overflow: hidden;}
+main .background .img-rounded {border: var(--space-below-01) solid var(--colorlight); margin-top: calc(0px - var(--space-below-02));}
 main .img-rounded img {object-fit: cover;width: 100%;height: 100%;display: block;}
 
 main code {font-family: courier 'Courier New', Courier, monospace;font-size: var(--fontsize-m);background: var(--color-gray-01);color: var(--colordark);}
