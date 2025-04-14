@@ -203,7 +203,8 @@ main code {font-family: courier 'Courier New', Courier, monospace;font-size: var
 #main .readme h1,
 #main .readme em {display: none;}
 
-footer {text-align: center;}
+footer {text-align: center;font-size: var(--fontsize-s);}
+footer p {margin-bottom: var(--space-below-00);}
 footer * {color: var(--colorlight);}
 footer a:is(:hover, :focus) {text-decoration: none;}
 
