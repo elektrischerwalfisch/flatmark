@@ -5,7 +5,7 @@
 ## Features  
 - Lightweight and fast
 - Easy-to-edit content, just Markdown files  
-- Just requires basic php, no database needed
+- Just requires basic php, no database or build-steps needed
 - Supports **single-language** and **multi-language** setups  
 - Auto-parses **Markdown** to HTML using [Parsedown](https://parsedown.org/)  
 - **Meta information** for title, description, and robots meta tag for each site 
@@ -13,7 +13,7 @@
 - Basic, responsive **Theme** which you can customize and enhance  
 
 ## Demo
-The [Demo Website](https://flatmark.elektrischerwalfisch.de/en) is an exact copy of the [GitHub Repository](https://github.com/elektrischerwalfisch/flatmark) and doubles as the documentation site. 
+The [Demo Website](https://flatmark.elektrischerwalfisch.de) is an exact copy of the [GitHub Repository](https://github.com/elektrischerwalfisch/flatmark) and doubles as the documentation site. 
 
 ## How It Works  
 FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-XX` for multilingual sites) into HTML pages. Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax/)  
@@ -144,4 +144,4 @@ FlatMark is released under the MIT License.
 ## Credits
 This project uses;
 - [Parsedown](https://parsedown.org) — MIT License
-- Open Sans font — [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- [Open Sans font](https://www.fontsquirrel.com/fonts/open-sans) — Apache License 2.0

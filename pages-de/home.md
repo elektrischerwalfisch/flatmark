@@ -8,7 +8,10 @@
 {/img-rounded}
 {columns-seperator}
 # flatMark
-Keine Datenbank nötig, kein unnötiger Ballast – nur Markdown und eine Prise PHP. Ideal für kleine Websites, Portfolios oder Dokumentationen. Die Inhalte werden direkt aus dem Dateisystem geladen. Einfach Markdown-Dateien bearbeiten und loslegen.
+Keine Datenbank nötig, kein unnötiger Ballast – nur Markdown und eine Prise PHP. Ideal für kleine Websites, Portfolios oder Dokumentationen. Die Inhalte werden direkt aus dem Dateisystem geladen. Einfach Markdown-Dateien bearbeiten und loslegen.  
+
+Dies ist lediglich eine Demo der deutschen Startseite. Die komplette Dokumentation ist zu finden auf der  
+[englischen Startseite](/en)
 {/columns}{/background}
 
 {columns 33-66}
@@ -17,4 +20,3 @@ Keine Datenbank nötig, kein unnötiger Ballast – nur Markdown und eine Prise 
 ![Pic](/files/example-pic-03.jpg)
 {/columns}
 
-Dies ist lediglich eine Demo der deutschen Startseite. Die komplette Dokumentation ist zu finden auf der [englischen Startseite](/en)
