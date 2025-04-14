@@ -9,4 +9,4 @@
 Ein minimalistischer Website-Generator auf Markdown-Basis
 
 - [Home](/de/home)
-- [Download](https://github.com/elektrischerwalfisch/flatmark)
+- [Download](/en/download)
