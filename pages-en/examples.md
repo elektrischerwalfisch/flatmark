@@ -14,6 +14,10 @@ These shortcodes are available by default in the flatMark-theme:
     Content with backgrond-color
 {/background}
 
+{button}
+    Link inside this shortcode appears as button
+{/button}
+
 {img-rounded}
     Picture with rounded border
 {/img-rounded}
@@ -36,7 +40,7 @@ These shortcodes are available by default in the flatMark-theme:
 {/code}
 
 ### Additional values
-The shortcodes for columns and background accept additional values which are rendered as classes so that the output can be styled directly by css. In the default flatMark-theme these additional values are already styled:
+The shortcodes for columns, background and buttons accept additional values which are rendered as classes so that the output can be styled directly by css. In the default flatMark-theme these additional values are already styled:
 {code}
 {columns 50-50}
 {columns 33-66}
@@ -45,6 +49,9 @@ The shortcodes for columns and background accept additional values which are ren
 
 {background color-01}
 {background color-02}
+
+{button color-01}
+{button color-02}
 {/code}  
 <br>  
 
@@ -103,6 +110,9 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 {/columns}
 <br>
 
+{button color-01}[Button color-01](/en/home){/button}
+
+{button color-02}[Button color-02](/en/home){/button}
 
 
 

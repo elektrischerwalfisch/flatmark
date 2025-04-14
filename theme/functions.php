@@ -77,6 +77,24 @@
             return '<div class="background ' . $bgClass . '">' . $bgHtml . '</div>';
         }, $markdown);
 
+    // Shortcode: button with optional class
+        $pattern = '/\{button(.*?)\}(.*?)\{\/button\}/s';
+        $markdown = preg_replace_callback($pattern, function ($matches) use ($Parsedown) {
+            // Capture the additional class (if any exists) directly after {button}
+            $buttonAttributes = trim($matches[1]);  // e.g., "color-01" from {button color-01}
+            $buttonContent = $matches[2];   // Capture the content inside {button} ... {/button}
+
+            // Add prefix to the class
+            $buttonPrefix = 'bg-'; // Define the prefix here
+            $buttonClass = !empty($buttonAttributes) ? $buttonPrefix . $buttonAttributes : '';  // Prefix added to class (e.g., bg-color-01)
+
+            // Convert the inner Markdown content
+            $buttonHtml = $Parsedown->text($buttonContent);
+
+            // Wrap everything in a div and add class if available
+            return '<div class="button ' . $buttonClass . '">' . $buttonHtml . '</div>';
+        }, $markdown);
+
     // Shortcode: img rounded
         $pattern = '/\{img-rounded\}(.*?)\{\/img-rounded\}/s';
         $markdown = preg_replace_callback($pattern, function ($matches) use ($Parsedown) {
