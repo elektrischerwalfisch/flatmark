@@ -96,7 +96,7 @@ Example Markdown file (about.md) with meta information:
 - **robots** → Controls search engine indexing (index, follow / noindex, nofollow). Defaults to index, follow.
 
 ## Shortcodes
-flatMark supports simple shortcodes for structured content. You can see all shortcodes in action on the Demo Website: [Shortcode-Examples](https://flatmark.elektrischerwalfisch.de/en/shortcode-examples). Here are just two examples:
+flatMark supports simple shortcodes for structured content. You can see all shortcodes in action on the [Examples-Page](https://flatmark.elektrischerwalfisch.de/en/examples) of theDemo Website. Here are just two examples:
 
     {columns 50-50}
     Left column
@@ -110,7 +110,7 @@ flatMark supports simple shortcodes for structured content. You can see all shor
   
 These shortcodes are part of the theme and are all located in the file `/theme/functions.php`.
 You can edit this file to change existing shortcodes or add even more.
-An example-page with all shortcodes is provided with the installation: `/pages-en/shortcode-examples.md`
+An example-page with all shortcodes is provided with the installation: `/pages-en/examples.md`
 
 
 ## Customization

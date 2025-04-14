@@ -9,5 +9,5 @@
 A lightweight, flat-file Markdown-based website generator
 
 - [Home](/en/home)
-- [Shortcode-Examples](/en/shortcode-examples)
+- [Examples](/en/examples)
 - [Download](https://github.com/elektrischerwalfisch/flatmark)
