@@ -1,4 +1,5 @@
 .vscode
+.htaccess-dev
 todo.md
 salat.php
 zwiebeln.php
