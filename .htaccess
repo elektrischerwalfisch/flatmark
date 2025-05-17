@@ -5,8 +5,3 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ index.php [L,QSA]
-
-# If .htaccess-dev (for development-purposes) exists, include it
-<IfFile .htaccess-dev>
-    Include .htaccess-dev
-</IfFile>
