@@ -31,23 +31,26 @@
     // Read the content of the requested Markdown file into a string
         $markdown = file_get_contents($file);
             
-    // Set defaults for Titel and meta-values
-        $defaultPageTitle = ucfirst($page);
-        $defaultMetaDescription = "";
-        $defaultMetaRobots = "index, follow";
+    // Set defaults for page-titel and meta-values
+        $pageTitle = ucfirst($page);
+        $metaDescription = "";
+        $metaRobots = "index, follow";
 
-    // Overwrite defaults by extracting individual title, description and robots from the first lines of the markdown file
-        $pageTitle = $defaultPageTitle;
-        $metaDescription = $defaultMetaDescription;
-        $metaRobots = $defaultMetaRobots;
-        if (preg_match('/^<!--\s*title:(.*?)\s*-->$/m', $markdown, $matches)) {
-            $pageTitle = trim($matches[1]);
-        }
-        if (preg_match('/^<!--\s*description:(.*?)\s*-->$/m', $markdown, $matches)) {
-            $metaDescription = trim($matches[1]);
-        }
-        if (preg_match('/^<!--\s*robots:(.*?)\s*-->$/m', $markdown, $matches)) {
-            $metaRobots = trim($matches[1]);
+    // Detect and extract YAML Front Matter
+        if (preg_match('/^---\s*(.*?)\s*---\s*(.*)$/s', $markdown, $matches)) {
+            $yaml = $matches[1];
+            $markdown = $matches[2]; // Markdown content without front matter
+
+            // Parse YAML (basic parser without dependencies)
+            foreach (explode("\n", $yaml) as $line) {
+                if (preg_match('/^\s*(title|description|robots):\s*(.*)$/', $line, $meta)) {
+                    $key = trim($meta[1]);
+                    $value = trim($meta[2]);
+                    if ($key === 'title') $pageTitle = $value;
+                    if ($key === 'description') $metaDescription = $value;
+                    if ($key === 'robots') $metaRobots = $value;
+                }
+            }
         }
 
     // Load header and footer markdown files and convert to HTML

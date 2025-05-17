@@ -88,15 +88,17 @@ This file is the default startpoint of your website.
 Edit this file to change the error-message which is shown if a page is not found. 
 
 
-## Meta information
-Each Markdown page can include optional meta information using HTML comments at the top of the file.
+## Metadata
+Each Markdown page can include optional meta information at the top of the file (Format: YAML Font Matter).
 These values will be automatically extracted and used in the <head> section of the generated HTML page.
 
 Example Markdown file (about.md) with meta information:
 
-    <!-- title: About Us -->
-    <!-- description: Learn more about our mission and team. -->
-    <!-- robots: index, follow -->
+    ---
+    title: About Us
+    description: Learn more about our mission and team.
+    robots: index, follow
+    ---
 
     # Welcome to Our Company
 
