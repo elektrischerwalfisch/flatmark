@@ -8,7 +8,7 @@
 - Just requires basic php, no database or build-steps needed
 - Auto-parses **Markdown** to HTML using [Parsedown](https://parsedown.org/)  
 - Supports **single-language** and **multi-language** setups  
-- **Meta information** for title, description, and robots meta tag for each site 
+- **Metadata** for title, description, and robots meta tag for each site (YAML font matter)
 - Provides simple **Shortcodes** to arrange and style your content (e.g. columns, different backgrounds)
 - Basic, responsive **Theme** which you can customize and enhance  
 
@@ -89,10 +89,10 @@ Edit this file to change the error-message which is shown if a page is not found
 
 
 ## Metadata
-Each Markdown page can include optional meta information at the top of the file (Format: YAML Font Matter).
+Each Markdown page can include optional metadata at the top of the file (Format: YAML font matter).
 These values will be automatically extracted and used in the <head> section of the generated HTML page.
 
-Example Markdown file (about.md) with meta information:
+Example Markdown file (about.md) with metadata:
 
     ---
     title: About Us
