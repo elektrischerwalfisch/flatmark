@@ -1,6 +1,8 @@
-<!-- title: flatMark - lightweight, flat-file Markdown-based website generator -->
-<!-- description: No database required, no overhead in sight — just Markdown and a sprinkle of PHP. Ideal for small websites, portfolios, or documentation, it delivers content directly from the filesystem. Just edit your Markdown files and go. -->
-<!-- robots: index, follow -->
+---
+title: flatMark - lightweight, flat-file Markdown-based website generator
+description: No database required, no overhead in sight — just Markdown and a sprinkle of PHP. Ideal for small websites, portfolios, or documentation, it delivers content directly from the filesystem. Just edit your Markdown files and go.
+robots: index, follow
+---
 
 {background color-02}{columns 33-66}
 {img-rounded}

@@ -1,7 +1,7 @@
 <?php
 /**
  * Project: flatMark
- * Version: 1.0
+ * Version: 1.1.0
  * 
  * Project URI: https://github.com/elektrischerwalfisch/flatmark
  * Author: elektrischerwalfisch
@@ -30,24 +30,27 @@
 
     // Read the content of the requested Markdown file into a string
         $markdown = file_get_contents($file);
-            
-    // Set defaults for Titel and meta-values
-        $defaultPageTitle = ucfirst($page);
-        $defaultMetaDescription = "";
-        $defaultMetaRobots = "index, follow";
 
-    // Overwrite defaults by extracting individual title, description and robots from the first lines of the markdown file
-        $pageTitle = $defaultPageTitle;
-        $metaDescription = $defaultMetaDescription;
-        $metaRobots = $defaultMetaRobots;
-        if (preg_match('/^<!--\s*title:(.*?)\s*-->$/m', $markdown, $matches)) {
-            $pageTitle = trim($matches[1]);
-        }
-        if (preg_match('/^<!--\s*description:(.*?)\s*-->$/m', $markdown, $matches)) {
-            $metaDescription = trim($matches[1]);
-        }
-        if (preg_match('/^<!--\s*robots:(.*?)\s*-->$/m', $markdown, $matches)) {
-            $metaRobots = trim($matches[1]);
+    // Set default metadata values in global scope
+        $pageMeta = [
+            'title' => ucfirst($page),
+            'description' => '',
+            'robots' => 'index, follow',
+        ];
+
+    // Detect and extract metadata (YAML Front Matter)
+        if (preg_match('/^---\s*(.*?)\s*---\s*(.*)$/s', $markdown, $matches)) {
+            $yaml = $matches[1];
+            $markdown = $matches[2]; // Markdown content without metadata
+
+            // Parse metadata manually (line by line)
+            foreach (explode("\n", $yaml) as $line) {
+                if (preg_match('/^\s*([\w\-]+):\s*(.*)$/', $line, $meta)) {
+                    $key = trim($meta[1]);
+                    $value = trim($meta[2]);
+                    $pageMeta[$key] = $value;
+                }
+            }
         }
 
     // Load header and footer markdown files and convert to HTML
@@ -87,9 +90,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?= htmlspecialchars($pageTitle) ?></title>
-        <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
-        <meta name="robots" content="<?= htmlspecialchars($metaRobots) ?>">
+        <title><?= htmlspecialchars($pageMeta['title']) ?></title>
+        <meta name="description" content="<?= htmlspecialchars($pageMeta['description']) ?>">
+        <meta name="robots" content="<?= htmlspecialchars($pageMeta['robots']) ?>">
         <link rel="stylesheet" href="/theme/css/style.css">
     </head>
     <body>

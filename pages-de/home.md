@@ -1,6 +1,8 @@
-<!-- title: flatMark - Ein minimalistischer Website-Generator auf Markdown-Basis -->
-<!-- description: Keine Datenbank nötig, kein unnötiger Ballast – nur Markdown und eine Prise PHP. Ideal für kleine Websites, Portfolios oder Dokumentationen. Die Inhalte werden direkt aus dem Dateisystem geladen. Einfach Markdown-Dateien bearbeiten und loslegen. -->
-<!-- robots: index, follow -->
+---
+title: flatMark - Ein minimalistischer Website-Generator auf Markdown-Basis
+description: Keine Datenbank nötig, kein unnötiger Ballast – nur Markdown und eine Prise PHP. Ideal für kleine Websites, Portfolios oder Dokumentationen. Die Inhalte werden direkt aus dem Dateisystem geladen. Einfach Markdown-Dateien bearbeiten und loslegen.
+robots: index, follow
+---
 
 {background color-02}{columns 33-66}
 {img-rounded}
