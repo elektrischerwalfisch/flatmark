@@ -1,7 +1,7 @@
 <?php
 /**
  * Project: flatMark
- * Version: 1.0
+ * Version: 1.1.0
  * 
  * Project URI: https://github.com/elektrischerwalfisch/flatmark
  * Author: elektrischerwalfisch
@@ -30,25 +30,25 @@
 
     // Read the content of the requested Markdown file into a string
         $markdown = file_get_contents($file);
-            
-    // Set defaults for page-titel and meta-values
-        $pageTitle = ucfirst($page);
-        $metaDescription = "";
-        $metaRobots = "index, follow";
 
-    // Detect and extract YAML Front Matter
+    // Set default metadata values in global scope
+        $pageMeta = [
+            'title' => ucfirst($page),
+            'description' => '',
+            'robots' => 'index, follow',
+        ];
+
+    // Detect and extract metadata (YAML Front Matter)
         if (preg_match('/^---\s*(.*?)\s*---\s*(.*)$/s', $markdown, $matches)) {
             $yaml = $matches[1];
-            $markdown = $matches[2]; // Markdown content without front matter
+            $markdown = $matches[2]; // Markdown content without metadata
 
-            // Parse YAML (basic parser without dependencies)
+            // Parse metadata manually (line by line)
             foreach (explode("\n", $yaml) as $line) {
-                if (preg_match('/^\s*(title|description|robots):\s*(.*)$/', $line, $meta)) {
+                if (preg_match('/^\s*([\w\-]+):\s*(.*)$/', $line, $meta)) {
                     $key = trim($meta[1]);
                     $value = trim($meta[2]);
-                    if ($key === 'title') $pageTitle = $value;
-                    if ($key === 'description') $metaDescription = $value;
-                    if ($key === 'robots') $metaRobots = $value;
+                    $pageMeta[$key] = $value;
                 }
             }
         }
@@ -90,9 +90,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?= htmlspecialchars($pageTitle) ?></title>
-        <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
-        <meta name="robots" content="<?= htmlspecialchars($metaRobots) ?>">
+        <title><?= htmlspecialchars($pageMeta['title']) ?></title>
+        <meta name="description" content="<?= htmlspecialchars($pageMeta['description']) ?>">
+        <meta name="robots" content="<?= htmlspecialchars($pageMeta['robots']) ?>">
         <link rel="stylesheet" href="/theme/css/style.css">
     </head>
     <body>
