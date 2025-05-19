@@ -10,8 +10,9 @@
     // Define page language
         $lang = 'de';
 
-    // Use the first URI segment if available; otherwise default to 'home'
-        $page = !empty($uriParts[0]) ? $uriParts[0] : 'home';
+    // Join all available URL segments to also support subfolders, otherwise default to 'home'
+        $pagePath = implode('/', $uriParts);
+        $page = $pagePath !== '' ? $pagePath : 'home';
 
     // Set content-folder
         $folder = __DIR__ . '/pages/';

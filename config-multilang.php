@@ -28,7 +28,8 @@
 
     // Determine the requested language and page from the URL and build the file path
         $lang = $uriParts[0]; // Set language based on the first URL segment
-        $page = $uriParts[1] ?? 'home'; // Set page based on the second URL segment, default to 'home'
+        $pagePath = implode('/', array_slice($uriParts, 1)); // Build page path from remaining segments after language (including subfolders)
+        $page = $pagePath !== '' ? $pagePath : 'home'; // default to 'home'
         $file = $languageFolders[$lang] . $page . '.md'; // Construct the full file path for the Markdown file
 
     // Define header and footer file paths
