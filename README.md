@@ -11,6 +11,7 @@
 - **Metadata** for title, description, and robots meta tag for each site (YAML font matter)
 - Provides simple **Shortcodes** to arrange and style your content (e.g. columns, different backgrounds)
 - Basic, responsive **Theme** which you can customize and enhance  
+- Option to use individual **Templates** for single pages
 
 ## Demo
 The [Demo Website](https://flatmark.elektrischerwalfisch.de) is an exact copy of the [GitHub Repository](https://github.com/elektrischerwalfisch/flatmark) and doubles as the documentation site. 
@@ -107,6 +108,7 @@ Example Markdown file (about.md) with metadata:
 - **title** → Sets the `<title>` of the page. Defaults to the filename if not provided.
 - **description** → Used for the `<meta name="description">` tag (important for SEO). Defaults to an empty string if not set.
 - **robots** → Controls search engine indexing (index, follow / noindex, nofollow). Defaults to index, follow.
+- **layout** → Sets individual template for the page, find further infos below under "Customization".
 
 ## Shortcodes
 flatMark supports simple shortcodes for structured content. You can see all shortcodes in action on the [Examples-Page](https://flatmark.elektrischerwalfisch.de/en/examples) of theDemo Website. Here are just two examples:
@@ -127,7 +129,16 @@ An example-page with all shortcodes is provided with the installation: `/pages-e
 
 
 ## Customization
-All customizable parts of flatMark are located in the `theme/` folder. This includes the main stylesheet (`theme/css/style.css`), a JavaScript file for interactive behavior (`theme/js/presets.js`), and the `theme/functions.php` file where custom shortcodes can be defined. You can freely modify these files to match your design and functionality needs. Additional assets like images, fonts, or scripts can also be placed in this folder to keep everything neatly organized in one place.
+All customizable parts of flatMark are located in the `theme/` folder: 
+- Styling with CSS main-stylesheet: `theme/css/style.css`
+- Interactive with JavaScript: `theme/js/presets.js`
+- Additional php-fuctions (like Shortcodes): `theme/functions.php`
+- Default HTML template: `theme/index.php`  
+
+Additional assets like fonts, favicons and images can also be placed in the theme-folder to keep everything neatly organized in one place.  
+
+**Templates**  
+Further HTML-templates can be added in the theme folder and addressed via metadata. Example: For a page including the metadata `layout: blog.php` the template `theme/blog.php` would be used, instead of the default-template `theme/index.php`.  
 
 
 ## flatMark as CMS

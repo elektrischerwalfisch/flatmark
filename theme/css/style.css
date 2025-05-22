@@ -166,6 +166,14 @@ header #main-nav ul {display: flex;background: var(--color-01);margin-bottom: 0;
 header #main-nav ul a {display: block;font-size: var(--fontsize-m);line-height: 1.6;font-weight: 700;color: var(--colorlight); text-decoration: none;padding: 0 var(--side-space-01);border-bottom: 2px solid var(--color-01);border-top: 2px solid var(--color-01);}
 header #main-nav ul a:is(:hover, :focus, .active) {background: var(--colorlight);color: var(--color-01);    outline: 0;} 
 
+/* Menu Subpages*/
+@media screen and (min-width: 782px) {
+    header #main-nav ul li:has(ul) {position: relative;}
+    header #main-nav ul > li > ul {position: absolute; display: block;}
+    header #main-nav ul > li > ul > li > a {white-space: nowrap;border: none;display: block; height: 0;overflow: hidden;transition: var(--animation-01);}
+    header #main-nav ul li:is(:hover, :focus-within) > ul > li > a {height: 26px;}
+}
+
 #toggle-nav {display: none;}
 
 main {padding: 0 var(--side-space-02) var(--space-below-01) var(--side-space-02);margin-bottom: var(--space-below-01);}
@@ -197,7 +205,6 @@ main .img-rounded {aspect-ratio: 1/1;border-radius: 50%;overflow: hidden;}
 main .background .img-rounded {border: var(--space-below-01) solid var(--colorlight); margin-top: calc(0px - var(--space-below-02));}
 main .img-rounded img {object-fit: cover;width: 100%;height: 100%;display: block;}
 
-main .button {}
 main .button a {display: inline-block;background: var(--colordark);color: var(--colorlight);text-decoration:none;padding: var(--space-below-00) var(--side-space-01);font-weight: 700;}
 main .button a:hover {opacity: 0.5;}
 main .button.bg-color-01 a {background: var(--color-01);}
@@ -205,10 +212,10 @@ main .button.bg-color-02 a {background: var(--color-02);}
 
 main code {font-family: courier 'Courier New', Courier, monospace;font-size: var(--fontsize-m);background: var(--color-gray-01);color: var(--colordark);}
 
-#main pre:has(code) {word-break: normal;word-wrap: normal;overflow: scroll;background: var(--color-gray-01);padding: var(--space-below-01) var(--space-below-01);border-radius: 10px;margin-bottom: var(--space-below-01);}
+main pre:has(code) {word-break: normal;word-wrap: normal;overflow: scroll;background: var(--color-gray-01);padding: var(--space-below-01) var(--space-below-01);border-radius: 10px;margin-bottom: var(--space-below-01);}
 
-#main .readme h1,
-#main .readme em {display: none;}
+main .readme h1,
+main .readme em {display: none;}
 
 footer {text-align: center;font-size: var(--fontsize-s);}
 footer p {margin-bottom: var(--space-below-00);}
@@ -230,9 +237,11 @@ footer a:is(:hover, :focus) {text-decoration: none;}
     header.menu-active #toggle-nav span:last-child {opacity: 1;transform: rotate(-45deg);}
     header #main-nav {padding-top: 0;}
     header #main-nav ul {display: block;}
-    header #main-nav ul li {overflow: hidden;height: 0;transition: var(--animation-01);}
+    header #main-nav ul li a {overflow: hidden;height: 0;transition: var(--animation-01);}
     header #main-nav ul a {font-size: var(--fontsize-l);border: none;}
-    header.menu-active #main-nav ul li {height: 40px!important;}
+    header #main-nav ul ul a {font-size: var(--fontsize-m); padding-left: var(--side-space-02);}
+    header.menu-active #main-nav ul li a {height: 40px;}
+    header.menu-active #main-nav ul ul li a {height: 26px;}
 
     h1 {font-size: var(--fontsize-xl);}
 
