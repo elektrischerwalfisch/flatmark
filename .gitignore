@@ -1,7 +1,9 @@
 .vscode
 .htaccess-dev
+.env
 todo.md
 salat.php
 zwiebeln.php
 oliven.php
+docker-compose.yml
 /pages-de/impressum.md
