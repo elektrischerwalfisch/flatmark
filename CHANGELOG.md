@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- docs: Simplify URL structure table for single-language default
 - feat: Add Plugins page and fix routing conflicts with system folders
 - chore: Gitignore config.php and require copy from config.example.php
 - feat: Add theme switching checks and a minimal plugin loader

@@ -21,9 +21,11 @@ FlatMark dynamically converts Markdown files in `content/pages/` into HTML pages
 
 ## URL Structure  
 
-| Setup           | Example URL | Maps to File                    |
-| --------------- | ----------- | ------------------------------- |
-| Single Language | `/about`    | `content/pages/about.md`        |
+| Example URL | Maps to File             |
+| ----------- | ------------------------ |
+| `/about`    | `content/pages/about.md` |
+
+For multilang URLs such as `/en/about`, see the demo page [Plugins](https://flatmark.elektrischerwalfisch.de/plugins).
 
 ## Folder Structure
 
