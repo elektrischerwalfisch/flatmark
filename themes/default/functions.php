@@ -106,7 +106,7 @@
     // Shortcode: output readme-file
         $pattern = '/\{readme\}/s';
         $markdown = preg_replace_callback($pattern, function () use ($Parsedown) {
-            $readmePath = __DIR__ . '/../README.md'; // path to root folder
+            $readmePath = __DIR__ . '/../../README.md'; // path to project root
             if (file_exists($readmePath)) {
                 $readmeContent = file_get_contents($readmePath);
                 return '<div class="readme">' . $Parsedown->text($readmeContent) . '</div>';

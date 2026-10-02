@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- fix: Correct README shortcode path for themes/default layout
 - refactor: move to content/, themes/default/, and vendor/Parsedown layout
 - docs: Add changelog with version history and ignore local environment files
 
