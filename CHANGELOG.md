@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- chore: Gitignore config.php and require copy from config.example.php
 - feat: Add theme switching checks and a minimal plugin loader
 - fix: Correct README shortcode path for themes/default layout
 - refactor: move to content/, themes/default/, and vendor/Parsedown layout

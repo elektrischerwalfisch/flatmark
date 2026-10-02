@@ -1,6 +1,7 @@
 .vscode
 .htaccess-dev
 .env
+config.php
 doc
 todo.md
 salat.php

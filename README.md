@@ -36,8 +36,8 @@ FlatMark dynamically converts Markdown files in `content/pages/` into HTML pages
     │── /plugins/               # Optional plugins (enabled via config)
     │── /vendor/
     │   └── Parsedown.php       # Third-party Markdown parser
-    │── config.example.php      # Sample settings
-    │── config.php              # Site settings (required; copy from example)
+    │── config.example.php      # Sample settings (copy to config.php)
+    │── config.php              # Site settings (required, gitignored)
     │── index.php               # Main file
     │── .htaccess               # URL rewriting
     │── README.md               # Documentation
@@ -45,7 +45,7 @@ FlatMark dynamically converts Markdown files in `content/pages/` into HTML pages
 ## Installation  
 1. **Download** the [latest release](https://github.com/elektrischerwalfisch/flatmark/releases/latest) of flatMark which contains a simple example-page
 2. **Upload** the files to your web server.  
-3. **Configuration** copy `config.example.php` to `config.php` if needed and set `$lang` and `$themeName`
+3. **Configuration** copy `config.example.php` to `config.php` and set `$lang` and `$themeName`
 4. **Edit content** inside `content/pages/`  
 5. Done! Your site is ready.  
 
@@ -54,7 +54,7 @@ FlatMark dynamically converts Markdown files in `content/pages/` into HTML pages
 - Apache/Nginx with mod_rewrite enabled 
 
 ## Configuration  
-Site settings live in `config.php`. The demo repository includes a working `config.php`. For a new install, copy `config.example.php` to `config.php`.
+Site settings live in `config.php` (gitignored). Copy `config.example.php` to `config.php` for local installs and for the demo deploy.
 
 If `config.php` is missing, flatMark stops with a clear setup error.
 

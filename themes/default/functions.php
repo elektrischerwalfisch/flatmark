@@ -32,7 +32,7 @@
     // Shortcode: year (current year)
         $pattern = '/\{year\}/s';
         $markdown = preg_replace_callback($pattern, function () {
-            return date("Y"); // Return current year
+            return date('Y'); // Return current year
         }, $markdown);
 
     // Shortcode: columns with optional classes
