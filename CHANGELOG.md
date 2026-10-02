@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- refactor: move to content/, themes/default/, and vendor/Parsedown layout
 - docs: Add changelog with version history and ignore local environment files
 
 ## 1.1.1 - 2025-05-22

@@ -7,8 +7,8 @@
 - Easy-to-edit content, just Markdown files  
 - Just requires basic php, no database or build-steps needed
 - Auto-parses **Markdown** to HTML using [Parsedown](https://parsedown.org/)  
-- Supports **single-language** and **multi-language** setups  
-- **Metadata** for title, description, and robots meta tag for each site (YAML font matter)
+- Single-language by default (multilanguage planned as an optional plugin)
+- **Metadata** for title, description, and robots meta tag for each site (YAML front matter)
 - Provides simple **Shortcodes** to arrange and style your content (e.g. columns, different backgrounds)
 - Basic, responsive **Theme** which you can customize and enhance  
 - Option to use individual **Templates** for single pages
@@ -17,24 +17,26 @@
 The [Demo Website](https://flatmark.elektrischerwalfisch.de) is an exact copy of the [GitHub Repository](https://github.com/elektrischerwalfisch/flatmark) and doubles as the documentation site. 
 
 ## How It Works  
-FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-XX` for multilingual sites) into HTML pages. Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax/)  
+FlatMark dynamically converts Markdown files in `content/pages/` into HTML pages. Find the full markdown-syntax here: [www.markdownguide.org/basic-syntax](https://www.markdownguide.org/basic-syntax/)  
 
 ## URL Structure  
 
-| Setup           | Example URL | Maps to File          |
-|-----------------|-------------|-----------------------|
-| Single Language | `/about`    | `/pages/about.md`     |
-| Multi-Language  | `/en/about` | `/pages-en/about.md`  |
+| Setup           | Example URL | Maps to File                    |
+| --------------- | ----------- | ------------------------------- |
+| Single Language | `/about`    | `content/pages/about.md`        |
 
 ## Folder Structure
 
     /flatmark/
-    │── /files/                 # Files (images, pdfs etc.)
-    │── /pages-en/              # English pages
-    │── /pages-de/              # German pages
-    │── /theme/                 # Styles, assets and templates of the theme
-    │── config-basic.php        # Single-language setup
-    │── config-multilang.php    # Multi-language setup
+    │── /content/
+    │   │── /files/             # Files (images, pdfs etc.)
+    │   └── /pages/             # Markdown pages
+    │── /themes/
+    │   └── /default/           # Shipped theme (styles, assets, templates)
+    │── /vendor/
+    │   └── Parsedown.php       # Third-party Markdown parser
+    │── config.example.php      # Sample settings
+    │── config.php              # Site settings (required; copy from example)
     │── index.php               # Main file
     │── .htaccess               # URL rewriting
     │── README.md               # Documentation
@@ -42,8 +44,8 @@ FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-
 ## Installation  
 1. **Download** the [latest release](https://github.com/elektrischerwalfisch/flatmark/releases/latest) of flatMark which contains a simple example-page
 2. **Upload** the files to your web server.  
-3. **Configuration** choose between single or multilanguage-setup in `index.php` (default: multi-language)
-4. **Edit content** inside `/pages` (or `/pages-XX` for multilingual sites).  
+3. **Configuration** copy `config.example.php` to `config.php` if needed and set `$lang` and `$themeName`
+4. **Edit content** inside `content/pages/`  
 5. Done! Your site is ready.  
 
 ## Requirements  
@@ -51,33 +53,29 @@ FlatMark dynamically converts Markdown files in the folder `/pages` (or `/pages-
 - Apache/Nginx with mod_rewrite enabled 
 
 ## Configuration  
-The default-configuration is for the languages English(en) and German(de).  
-If this is already what you want, you do not have to change anything and you can delete the file `config-basic.php` as it is only needed for the single-language setup.
+Site settings live in `config.php`. The demo repository includes a working `config.php`. For a new install, copy `config.example.php` to `config.php`.
 
-**Multi language setup (default)**  
-The automatic language-redirection is described with the default-setup with folders for Engish and German pages:
-When the website is opened in a browser with German language-settings, the request is automatically redirected to the pages in the folder `/pages-de`. All requests with brower-settings in other languages than german, are redirected to the pages in the folder `/pages-en` (default-language).
+If `config.php` is missing, flatMark stops with a clear setup error.
 
-- You can edit the languages of your website in the file `config-multilang.php` by editing the language-codes in this line: `$supportedLanguages = ['en', 'de'];` The first language-code acts as the default-language ('en' in this case).
-- **Add language** (example):  
-If you want to add French, change $supportedLanguages to `$supportedLanguages = ['en', 'de', 'fr'];` and add the folder `/pages-fr` for the French pages.
-- **Remove language** (example):  
-If you want to remove German, change $supportedLanguages to `$supportedLanguages = ['en', 'fr'];` and remove the folder `/pages-de` for the German pages.
+Default values:
 
+```php
+$lang = 'en';
+$themeName = 'default';
+$enabledPlugins = [];
+```
 
-**Single language setup**  
-- If you only want a website with a single language, open `index.php` and change the line `require 'config-multilang.php';` to `require 'config-basic.php';` 
-- Delete the file `config-multilang.php` as it is only needed for the multi-language setup.
-- Rename the folder `/pages-en` to `/pages` and delete the folder `/pages-de`
-- Open the file `config-basic.php` and define the language of your website by editing the language-code in this line: `$lang = 'de';` ('de' stands for German this case)
+- `$lang` — HTML language code of the site  
+- `$themeName` — theme folder under `themes/`  
+- `$enabledPlugins` — reserved for upcoming plugins (currently unused)
 
-Find all available language-codes here: [HTML Language Code Reference](https://www.w3schools.com/tags/ref_language_codes.asp) 
+Find available language-codes here: [HTML Language Code Reference](https://www.w3schools.com/tags/ref_language_codes.asp) 
 
 ## Defaults
-Each pages-folder must contain at least these files for the website to function:  
+`content/pages/` must contain at least these files for the website to function:  
 
 - 01-header.md  
-Edit this file to change logo, title, subtitle of the website and the main menu. The main-menu must be a list of links to function correctly. You also have the option to add further elements like contact-details or a language-menu by wrapping them in the shortcode `{extras}` `{/extra}`. 
+Edit this file to change logo, title, subtitle of the website and the main menu. The main-menu must be a list of links to function correctly. You also have the option to add further elements like contact-details by wrapping them in the shortcode `{extras}` `{/extras}`. 
 
 - 02-footer.md  
 Edit this file to change the text in the footer and the footer-menu. The footer-menu must also be a list of links to function correctly. The shortcode `{year}` will display the current year. 
@@ -90,7 +88,7 @@ Edit this file to change the error-message which is shown if a page is not found
 
 
 ## Metadata
-Each Markdown page can include optional metadata at the top of the file (Format: YAML font matter).
+Each Markdown page can include optional metadata at the top of the file (Format: YAML front matter).
 These values will be automatically extracted and used in the <head> section of the generated HTML page.
 
 Example Markdown file (about.md) with metadata:
@@ -111,7 +109,7 @@ Example Markdown file (about.md) with metadata:
 - **layout** → Sets individual template for the page, find further infos below under "Customization".
 
 ## Shortcodes
-flatMark supports simple shortcodes for structured content. You can see all shortcodes in action on the [Examples-Page](https://flatmark.elektrischerwalfisch.de/en/examples) of theDemo Website. Here are just two examples:
+flatMark supports simple shortcodes for structured content. You can see all shortcodes in action on the [Examples-Page](https://flatmark.elektrischerwalfisch.de/examples) of the Demo Website. Here are just two examples:
 
     {columns 50-50}
     Left column
@@ -123,22 +121,22 @@ flatMark supports simple shortcodes for structured content. You can see all shor
     This content has a colored background.
     {/background}
   
-These shortcodes are part of the theme and are all located in the file `/theme/functions.php`.
+These shortcodes are part of the theme and are all located in the file `themes/default/functions.php`.
 You can edit this file to change existing shortcodes or add even more.
-An example-page with all shortcodes is provided with the installation: `/pages-en/examples.md`
+An example-page with all shortcodes is provided with the installation: `content/pages/examples.md`
 
 
 ## Customization
-All customizable parts of flatMark are located in the `theme/` folder: 
-- Styling with CSS main-stylesheet: `theme/css/style.css`
-- Interactive with JavaScript: `theme/js/presets.js`
-- Additional php-fuctions (like Shortcodes): `theme/functions.php`
-- Default HTML template: `theme/index.php`  
+All customizable parts of the shipped theme are located in `themes/default/`: 
+- Styling with CSS main-stylesheet: `themes/default/css/style.css`
+- Interactive with JavaScript: `themes/default/js/presets.js`
+- Additional php-functions (like Shortcodes): `themes/default/functions.php`
+- Default HTML template: `themes/default/index.php`  
 
 Additional assets like fonts, favicons and images can also be placed in the theme-folder to keep everything neatly organized in one place.  
 
 **Templates**  
-Further HTML-templates can be added in the theme folder and addressed via metadata. Example: For a page including the metadata `layout: blog.php` the template `theme/blog.php` would be used, instead of the default-template `theme/index.php`.  
+Further HTML-templates can be added in the theme folder and addressed via metadata. Example: For a page including the metadata `layout: blog.php` the template `themes/default/blog.php` would be used, instead of the default-template `themes/default/index.php`.  
 
 
 ## flatMark as CMS

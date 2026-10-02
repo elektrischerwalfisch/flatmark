@@ -7,7 +7,6 @@
  *
  * @package flatMark
  * @subpackage Theme
- * 
  */
 ?>
 
@@ -19,11 +18,11 @@
         <title><?= htmlspecialchars($pageMeta['title']) ?></title>
         <meta name="description" content="<?= htmlspecialchars($pageMeta['description']) ?>">
         <meta name="robots" content="<?= htmlspecialchars($pageMeta['robots']) ?>">
-        <link rel="stylesheet" href="/theme/css/style.css">
+        <link rel="stylesheet" href="/themes/<?= htmlspecialchars($themeName) ?>/css/style.css">
     </head>
     <body>
         <div id="wrapper">
-            <header>	
+            <header>
                 <?= $headerContent ?>
             </header>
             <main id="main">
@@ -32,7 +31,7 @@
             <footer>
                 <?= $footerContent ?>
             </footer>
-            <script src="/theme/js/presets.js"></script>
+            <script src="/themes/<?= htmlspecialchars($themeName) ?>/js/presets.js"></script>
         </div>
     </body>
 </html>

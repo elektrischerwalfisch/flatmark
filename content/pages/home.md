@@ -6,7 +6,7 @@ robots: index, follow
 
 {background color-02}{columns 33-66}
 {img-rounded}
-![Pic](/files/example-pic-01.jpg)
+![Pic](/content/files/example-pic-01.jpg)
 {/img-rounded}
 {columns-seperator}
 # flatMark
@@ -14,9 +14,9 @@ No database required, no overhead in sight — just Markdown and a sprinkle of P
 {/columns}{/background}
 
 {columns 33-66}
-![Pic](/files/example-pic-02.jpg)
+![Pic](/content/files/example-pic-02.jpg)
 {columns-seperator}
-![Pic](/files/example-pic-03.jpg)
+![Pic](/content/files/example-pic-03.jpg)
 {/columns}
 
 {readme}

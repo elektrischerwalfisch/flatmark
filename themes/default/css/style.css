@@ -147,7 +147,7 @@ strong {font-weight: 700;}
 hr {height: 1px;border: none;width: 100%;background: var(--color-01);margin-bottom: var(--space-below-00);}
 table {border-collapse: collapse;border-spacing: 0;}
 
-header ul {display: none;} /* prevent output of menu-lists before they are rendered in /theme/js/presets.js */
+header ul {display: none;} /* prevent output of menu-lists before they are rendered in /themes/default/js/presets.js */
 header {min-height: 148px; /* hotfix: set min-height to prevent jump on first pageload */ display: flex;flex-wrap: wrap; position: relative;padding: var(--space-below-02) var(--side-space-02) var(--space-below-01) var(--side-space-02) ;}
 
 header p {margin-bottom: 0;color: var(--colorblack);width: calc(100% - 74px);}

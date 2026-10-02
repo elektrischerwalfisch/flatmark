@@ -1,13 +1,8 @@
-{extras}
-- [English](/en)
-- [Deutsch](/de)
-{/extras}
+![Logo](/content/files/logo.gif)
 
-![Logo](/files/logo.gif)
-
-[flatMark](/de)
+[flatMark](/)
 A lightweight, flat-file Markdown-based website generator
 
-- [Home](/en/home)
-- [Examples](/en/examples)
-- [Download](/en/download)
+- [Home](/home)
+- [Examples](/examples)
+- [Download](/download)

@@ -34,7 +34,7 @@ These shortcodes are available by default in the flatMark-theme:
 
 {readme}
     Outputs the readme.md from the root-folder. 
-    Used on the default-page /pages-en/home.md
+    Used on the default-page /content/pages/home.md
 
 
 {/code}
@@ -67,7 +67,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 {columns 33-66}
 **columns 33-66** Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
 {columns-seperator}
-![Pic](/files/example-pic-03.jpg)
+![Pic](/content/files/example-pic-03.jpg)
 {/columns}
  <br>
 
@@ -76,16 +76,16 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
 {columns-seperator}
-![Pic](/files/example-pic-02.jpg)
+![Pic](/content/files/example-pic-02.jpg)
 {/columns}
  <br>
 
 {columns 33-33-33}
 **columns 33-33-33** Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr. 
 {columns-seperator}
-![Pic](/files/example-pic-01.jpg)
+![Pic](/content/files/example-pic-01.jpg)
 {columns-seperator}
-![Pic](/files/example-pic-01.jpg)
+![Pic](/content/files/example-pic-01.jpg)
 {/columns}
  <br>
 
@@ -102,7 +102,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 ### Shortcode-Examples: Miscellaneous  
 {columns 33-66}
 {img-rounded}
-![Pic](/files/example-pic-01.jpg)
+![Pic](/content/files/example-pic-01.jpg)
 {/img-rounded}
 {columns-seperator}
 **img-rounded** inside **columns 33-66** 
@@ -110,9 +110,9 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 {/columns}
 <br>
 
-{button color-01}[Button color-01](/en/home){/button}
+{button color-01}[Button color-01](/home){/button}
 
-{button color-02}[Button color-02](/en/home){/button}
+{button color-02}[Button color-02](/home){/button}
 
 
 

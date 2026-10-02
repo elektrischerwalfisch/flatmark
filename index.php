@@ -1,32 +1,93 @@
 <?php
 /**
  * Project: flatMark
- * Version: 1.1.1
- * 
+ * Version: 2.0.0-dev
+ *
  * Project URI: https://github.com/elektrischerwalfisch/flatmark
  * Author: elektrischerwalfisch
  * Author URI: https://www.elektrischerwalfisch.de
  * License: MIT
  */
 
-     // Start output buffering (prevents page to "jump" before everything is loaded)
+// ---------------------------------------------------------------------------
+// Bootstrap
+// ---------------------------------------------------------------------------
+
+    // Start output buffering (prevents page to "jump" before everything is loaded)
         ob_start();
 
-    // Include shortcode functions (if file exists)
-        if (file_exists('theme/functions.php')) {
-            require 'theme/functions.php';
+// ---------------------------------------------------------------------------
+// Config
+// ---------------------------------------------------------------------------
+
+    // Require site configuration (copy config.example.php to config.php if missing)
+        if (!file_exists(__DIR__ . '/config.php')) {
+            http_response_code(500);
+            echo 'Missing config.php. Copy config.example.php to config.php and adjust settings.';
+            exit;
         }
-    
+
+        require __DIR__ . '/config.php';
+
+    // Apply defaults for missing config values
+        $lang = $lang ?? 'en';
+        $themeName = $themeName ?? 'default';
+        $enabledPlugins = $enabledPlugins ?? [];
+
+    // Resolve active theme folder from config
+        $themePath = __DIR__ . '/themes/' . $themeName;
+        if (!is_dir($themePath)) {
+            http_response_code(500);
+            echo "Theme '{$themeName}' not found in themes folder.";
+            exit;
+        }
+
+// ---------------------------------------------------------------------------
+// Theme + libraries
+// ---------------------------------------------------------------------------
+
+    // Include shortcode functions (if file exists)
+        if (file_exists($themePath . '/functions.php')) {
+            require $themePath . '/functions.php';
+        }
+
     // Include Parsedown
-        require 'theme/libs/Parsedown.php';
+        require __DIR__ . '/vendor/Parsedown.php';
         $Parsedown = new Parsedown();
 
-    // Get requested language and page from URL rewriting
-        $requestUri = trim($_SERVER['REQUEST_URI'], '/');
-        $uriParts = explode('/', $requestUri);
+// ---------------------------------------------------------------------------
+// Routing (single-language default)
+// ---------------------------------------------------------------------------
 
-    // Default: multilingual setup. If your site is a single-language setup, change 'config-multilang.php' to 'config-basic.php' in the next line 
-        require 'config-multilang.php';
+    // Get requested page from URL rewriting
+        $requestUri = trim($_SERVER['REQUEST_URI'] ?? '', '/');
+        $uriParts = $requestUri === '' ? [] : explode('/', $requestUri);
+
+    // Join all available URL segments to also support subfolders, otherwise default to 'home'
+        $pagePath = implode('/', $uriParts);
+        $page = $pagePath !== '' ? $pagePath : 'home';
+
+    // Set content folder and build Markdown file paths
+        $folder = __DIR__ . '/content/pages/';
+        $file = $folder . $page . '.md';
+        $headerFile = $folder . '01-header.md';
+        $footerFile = $folder . '02-footer.md';
+
+    // Check if file exists and prevent rendering of header/footer files
+        if (!file_exists($file) || in_array($page, ['01-header', '02-footer'], true)) {
+            http_response_code(404);
+            $file = $folder . '404.md';
+        }
+
+// ---------------------------------------------------------------------------
+// Plugins
+// ---------------------------------------------------------------------------
+
+    // Plugin loading comes in a later step. $enabledPlugins is reserved for that.
+
+// ---------------------------------------------------------------------------
+// Render
+// ---------------------------------------------------------------------------
 
     // Read the content of the requested Markdown file into a string
         $markdown = file_get_contents($file);
@@ -57,7 +118,7 @@
         $headerContent = '';
         if (file_exists($headerFile)) {
             $headerContent = file_get_contents($headerFile);
-            // Apply theme/functions.php before converting to HTML (if function exists)
+            // Apply theme functions before converting to HTML (if function exists)
             if (function_exists('processShortcodes')) {
                 $headerContent = processShortcodes($headerContent);
             }
@@ -67,7 +128,7 @@
         $footerContent = '';
         if (file_exists($footerFile)) {
             $footerContent = file_get_contents($footerFile);
-            // Apply theme/functions.php before converting to HTML (if function exists)
+            // Apply theme functions before converting to HTML (if function exists)
             if (function_exists('processShortcodes')) {
                 $footerContent = processShortcodes($footerContent);
             }
@@ -75,7 +136,7 @@
             $footerContent = $Parsedown->text($footerContent);
         }
 
-    // Apply theme/functions.php before converting to HTML (if function exists)
+    // Apply theme functions before converting to HTML (if function exists)
         if (function_exists('processShortcodes')) {
             $markdown = processShortcodes($markdown);
         }
@@ -84,8 +145,8 @@
         $htmlContent = $Parsedown->text($markdown);
 
     // Load HTML template
-        $layout = $pageMeta['layout'] ?? 'index'; // Set template from pageMeta or use /theme/index.php as fallback
-        $templateFile = __DIR__ . "/theme/{$layout}.php"; // Build full path to template
+        $layout = $pageMeta['layout'] ?? 'index'; // Set template from pageMeta or use theme index.php as fallback
+        $templateFile = $themePath . '/' . $layout . '.php'; // Build full path to template
         // Show warning if template does not exist
         if (!file_exists($templateFile)) {
             http_response_code(500);
@@ -95,5 +156,4 @@
         require $templateFile; // Load template
 
     // Flush output buffer
-        ob_end_flush(); 
-?>
+        ob_end_flush();
