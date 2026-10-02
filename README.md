@@ -33,7 +33,8 @@ FlatMark dynamically converts Markdown files in `content/pages/` into HTML pages
     │   └── /pages/             # Markdown pages
     │── /themes/
     │   └── /default/           # Shipped theme (styles, assets, templates)
-    │── /plugins/               # Optional plugins (enabled via config)
+    │── /plugins/
+    │   └── /multilang/         # Optional language routing (disabled by default)
     │── /vendor/
     │   └── Parsedown.php       # Third-party Markdown parser
     │── config.example.php      # Sample settings (copy to config.php)
@@ -70,7 +71,7 @@ $enabledPlugins = [];
 - `$themeName` — theme folder under `themes/`  
 - `$enabledPlugins` — optional plugin folders under `plugins/` (empty by default)
 
-Enable a plugin by listing its folder name, e.g. `$enabledPlugins = ['multilang'];`. Each plugin is `plugins/<name>/plugin.php` and may take over page routing; otherwise flatMark stays single-language under `content/pages/`.
+See the demo page [Plugins](https://flatmark.elektrischerwalfisch.de/plugins) for setup details (including multilang).
 
 Find available language-codes here: [HTML Language Code Reference](https://www.w3schools.com/tags/ref_language_codes.asp) 
 

@@ -39,16 +39,18 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
 // HEADER: highlight active page in main menu
-    const currentUrl = window.location.href;
-    const currentPath = window.location.pathname;
+    // Normalize trailing slashes so /plugins and /plugins/ both match
+    // (Apache may add a slash when a same-named system folder exists)
+    const normalizePath = (path) => {
+        if (!path || path === '/') {
+            return '/';
+        }
+        return path.replace(/\/+$/, '');
+    };
+    const currentPath = normalizePath(window.location.pathname);
     const menuLinks = document.querySelectorAll('header nav ul a');
     menuLinks.forEach((link) => {
-        // Check if the href matches the current URL or pathname
-        if (link.href === currentUrl || link.pathname === currentPath) {
-            link.classList.add('active');
-        }
-        // Additional check for the Home link
-        if (currentPath === '/' && link.getAttribute('href') === '/') {
+        if (normalizePath(link.pathname) === currentPath) {
             link.classList.add('active');
         }
     });
