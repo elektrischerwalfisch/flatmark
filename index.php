@@ -16,15 +16,25 @@
     // Start output buffering (prevents page to "jump" before everything is loaded)
         ob_start();
 
+    // Stop with HTTP 500 and a short message
+        $fail = function (string $message): void {
+            http_response_code(500);
+            echo $message;
+            exit;
+        };
+
+    // Safe folder name for themes and plugins (blocks path traversal)
+        $isSafeName = function ($name): bool {
+            return is_string($name) && (bool) preg_match('/^[a-zA-Z0-9_-]+$/', $name);
+        };
+
 // ---------------------------------------------------------------------------
 // Config
 // ---------------------------------------------------------------------------
 
     // Require site configuration (copy config.example.php to config.php if missing)
         if (!file_exists(__DIR__ . '/config.php')) {
-            http_response_code(500);
-            echo 'Missing config.php. Copy config.example.php to config.php and adjust settings.';
-            exit;
+            $fail('Missing config.php. Copy config.example.php to config.php and adjust settings.');
         }
 
         require __DIR__ . '/config.php';
@@ -34,12 +44,14 @@
         $themeName = $themeName ?? 'default';
         $enabledPlugins = $enabledPlugins ?? [];
 
-    // Resolve active theme folder from config
+    // Resolve active theme folder from config ($themeName only; no fallback theme)
+        if (!$isSafeName($themeName)) {
+            $fail('Invalid theme name in config.php.');
+        }
+
         $themePath = __DIR__ . '/themes/' . $themeName;
-        if (!is_dir($themePath)) {
-            http_response_code(500);
-            echo "Theme '{$themeName}' not found in themes folder.";
-            exit;
+        if (!is_dir($themePath) || !file_exists($themePath . '/index.php')) {
+            $fail("Theme '{$themeName}' not found in themes folder.");
         }
 
 // ---------------------------------------------------------------------------
@@ -56,34 +68,84 @@
         $Parsedown = new Parsedown();
 
 // ---------------------------------------------------------------------------
-// Routing (single-language default)
+// Routing + plugins
 // ---------------------------------------------------------------------------
 
     // Get requested page from URL rewriting
         $requestUri = trim($_SERVER['REQUEST_URI'] ?? '', '/');
         $uriParts = $requestUri === '' ? [] : explode('/', $requestUri);
 
-    // Join all available URL segments to also support subfolders, otherwise default to 'home'
-        $pagePath = implode('/', $uriParts);
-        $page = $pagePath !== '' ? $pagePath : 'home';
+    // Request context for plugins (return updated array; set routed=true to own page resolution)
+        $context = [
+            'root' => __DIR__,
+            'requestUri' => $requestUri,
+            'uriParts' => $uriParts,
+            'lang' => $lang,
+            'themeName' => $themeName,
+            'themePath' => $themePath,
+            'folder' => __DIR__ . '/content/pages/',
+            'page' => null,
+            'file' => null,
+            'headerFile' => null,
+            'footerFile' => null,
+            'httpStatus' => 200,
+            'routed' => false,
+        ];
 
-    // Set content folder and build Markdown file paths
-        $folder = __DIR__ . '/content/pages/';
-        $file = $folder . $page . '.md';
-        $headerFile = $folder . '01-header.md';
-        $footerFile = $folder . '02-footer.md';
+    // Load enabled plugins in config order (each plugin.php returns a callable)
+        foreach ((array) $enabledPlugins as $pluginName) {
+            if (!$isSafeName($pluginName)) {
+                $fail('Invalid plugin name in $enabledPlugins.');
+            }
 
-    // Check if file exists and prevent rendering of header/footer files
-        if (!file_exists($file) || in_array($page, ['01-header', '02-footer'], true)) {
-            http_response_code(404);
-            $file = $folder . '404.md';
+            $pluginFile = __DIR__ . '/plugins/' . $pluginName . '/plugin.php';
+            if (!file_exists($pluginFile)) {
+                $fail("Plugin '{$pluginName}' not found.");
+            }
+
+            $bootstrap = require $pluginFile;
+            $context = is_callable($bootstrap) ? $bootstrap($context) : null;
+            if (!is_array($context)) {
+                $fail("Plugin '{$pluginName}' must return a context array from a callable.");
+            }
         }
 
-// ---------------------------------------------------------------------------
-// Plugins
-// ---------------------------------------------------------------------------
+    // Default single-language routing if no plugin handled the request
+        if (empty($context['routed'])) {
+            // Join URL segments to support subfolders, otherwise default to 'home'
+            $pagePath = implode('/', $context['uriParts']);
+            $page = $pagePath !== '' ? $pagePath : 'home';
+            $folder = $context['folder'];
+            $file = $folder . $page . '.md';
+            $headerFile = $folder . '01-header.md';
+            $footerFile = $folder . '02-footer.md';
 
-    // Plugin loading comes in a later step. $enabledPlugins is reserved for that.
+            // Check if file exists and prevent rendering of header/footer files
+            if (!file_exists($file) || in_array($page, ['01-header', '02-footer'], true)) {
+                $context['httpStatus'] = 404;
+                $file = $folder . '404.md';
+            }
+
+            $context['page'] = $page;
+            $context['file'] = $file;
+            $context['headerFile'] = $headerFile;
+            $context['footerFile'] = $footerFile;
+            $context['routed'] = true;
+        }
+
+        $lang = $context['lang'] ?? $lang;
+        $page = $context['page'];
+        $file = $context['file'];
+        $headerFile = $context['headerFile'];
+        $footerFile = $context['footerFile'];
+
+        if (($context['httpStatus'] ?? 200) === 404) {
+            http_response_code(404);
+        }
+
+        if (!$file || !file_exists($file)) {
+            $fail('Routed page file is missing.');
+        }
 
 // ---------------------------------------------------------------------------
 // Render

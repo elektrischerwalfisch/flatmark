@@ -33,6 +33,7 @@ FlatMark dynamically converts Markdown files in `content/pages/` into HTML pages
     │   └── /pages/             # Markdown pages
     │── /themes/
     │   └── /default/           # Shipped theme (styles, assets, templates)
+    │── /plugins/               # Optional plugins (enabled via config)
     │── /vendor/
     │   └── Parsedown.php       # Third-party Markdown parser
     │── config.example.php      # Sample settings
@@ -67,7 +68,9 @@ $enabledPlugins = [];
 
 - `$lang` — HTML language code of the site  
 - `$themeName` — theme folder under `themes/`  
-- `$enabledPlugins` — reserved for upcoming plugins (currently unused)
+- `$enabledPlugins` — optional plugin folders under `plugins/` (empty by default)
+
+Enable a plugin by listing its folder name, e.g. `$enabledPlugins = ['multilang'];`. Each plugin is `plugins/<name>/plugin.php` and may take over page routing; otherwise flatMark stays single-language under `content/pages/`.
 
 Find available language-codes here: [HTML Language Code Reference](https://www.w3schools.com/tags/ref_language_codes.asp) 
 
@@ -127,16 +130,39 @@ An example-page with all shortcodes is provided with the installation: `content/
 
 
 ## Customization
-All customizable parts of the shipped theme are located in `themes/default/`: 
-- Styling with CSS main-stylesheet: `themes/default/css/style.css`
-- Interactive with JavaScript: `themes/default/js/presets.js`
-- Additional php-functions (like Shortcodes): `themes/default/functions.php`
-- Default HTML template: `themes/default/index.php`  
 
-Additional assets like fonts, favicons and images can also be placed in the theme-folder to keep everything neatly organized in one place.  
+### Themes
 
-**Templates**  
-Further HTML-templates can be added in the theme folder and addressed via metadata. Example: For a page including the metadata `layout: blog.php` the template `themes/default/blog.php` would be used, instead of the default-template `themes/default/index.php`.  
+Themes live under `themes/<name>/`. The active theme is selected only by `$themeName` in `config.php`. There is no automatic fallback to another theme.
+
+- `themes/default/` — shipped system theme (updated with the product)
+- `themes/<other>/` — site-owned custom themes (not overwritten by product updates)
+
+Each theme should contain at least:
+
+- `index.php` — default HTML template
+- `functions.php` — optional shortcodes and helpers
+- `css/style.css`
+- `js/presets.js`
+
+**Switch theme**
+
+1. Copy `themes/default/` to e.g. `themes/custom/` (or create a new theme folder)
+2. Edit the copy as needed
+3. Set in `config.php`: `$themeName = 'custom';`
+4. Invalid or missing theme names return a clear HTTP 500 error
+
+CSS, JS, and templates are always loaded from the selected theme folder (`/themes/<name>/...`).
+
+**Templates within a theme**  
+Further HTML templates can be added in the active theme folder and addressed via metadata. Example: For a page including the metadata `layout: blog` the template `themes/<name>/blog.php` would be used, instead of the default template `themes/<name>/index.php`.
+
+Shipped default theme paths:
+
+- Styling: `themes/default/css/style.css`
+- JavaScript: `themes/default/js/presets.js`
+- Shortcodes: `themes/default/functions.php`
+- Default HTML template: `themes/default/index.php`
 
 
 ## flatMark as CMS

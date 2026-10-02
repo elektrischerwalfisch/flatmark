@@ -5,6 +5,6 @@
  * @package flatMark
  */
 
-$lang = 'en';
-$themeName = 'default';
+$lang = "en";
+$themeName = "default";
 $enabledPlugins = [];

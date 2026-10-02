@@ -11,8 +11,8 @@
 // Site language (HTML lang attribute)
 $lang = 'en';
 
-// Active theme folder under themes/
+// Active theme folder under themes/ (shipped: default; site-owned custom themes use another folder name)
 $themeName = 'default';
 
-// Optional plugins (empty by default; multilang comes in a later step)
+// Optional plugins (empty by default). Names match folders under plugins/
 $enabledPlugins = [];
