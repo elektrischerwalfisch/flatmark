@@ -4,6 +4,6 @@
 A lightweight, flat-file Markdown-based website generator
 
 - [Home](/home)
-- [Examples](/examples)
+- [Shortcodes](/shortcodes)
 - [Plugins](/plugins)
 - [Download](/download)

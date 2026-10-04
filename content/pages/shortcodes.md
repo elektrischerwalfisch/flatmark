@@ -1,7 +1,6 @@
-# Examples
+# Shortcodes
 
-## Shortcodes
-These shortcodes are available by default in the flatMark-theme:
+These shortcodes are available by default in the flatMark theme:
 
 {code}
 {columns}

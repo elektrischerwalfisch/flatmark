@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- docs: Restructure plugin docs and rename examples page to shortcodes
 - docs: Move multilang setup docs into the plugin README
 - feat: Add named hooks and multilang hreflang with i18n slug overrides
 - docs: Simplify URL structure table for single-language default

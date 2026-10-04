@@ -71,9 +71,7 @@ $enabledPlugins = [];
 
 - `$lang` — HTML language code of the site  
 - `$themeName` — theme folder under `themes/`  
-- `$enabledPlugins` — optional plugin folders under `plugins/` (empty by default)
-
-See the demo page [Plugins](https://flatmark.elektrischerwalfisch.de/plugins) for an overview. Each plugin documents setup in `plugins/<name>/README.md` (multilang: [plugins/multilang/README.md](plugins/multilang/README.md)).
+- `$enabledPlugins` — optional plugin folders under `plugins/` (empty by default); see [Plugins](#plugins)
 
 Find available language-codes here: [HTML Language Code Reference](https://www.w3schools.com/tags/ref_language_codes.asp) 
 
@@ -112,10 +110,10 @@ Example Markdown file (about.md) with metadata:
 - **title** → Sets the `<title>` of the page. Defaults to the filename if not provided.
 - **description** → Used for the `<meta name="description">` tag (important for SEO). Defaults to an empty string if not set.
 - **robots** → Controls search engine indexing (index, follow / noindex, nofollow). Defaults to index, follow.
-- **layout** → Sets individual template for the page, find further infos below under "Customization".
+- **layout** → Sets individual template for the page, find further infos below under "Themes".
 
 ## Shortcodes
-flatMark supports simple shortcodes for structured content. You can see all shortcodes in action on the [Examples-Page](https://flatmark.elektrischerwalfisch.de/examples) of the Demo Website. Here are just two examples:
+flatMark supports simple shortcodes for structured content. You can see all shortcodes in action on the [Shortcodes page](https://flatmark.elektrischerwalfisch.de/shortcodes) of the Demo Website. Here are just two examples:
 
     {columns 50-50}
     Left column
@@ -129,12 +127,25 @@ flatMark supports simple shortcodes for structured content. You can see all shor
   
 These shortcodes are part of the theme and are all located in the file `themes/default/functions.php`.
 You can edit this file to change existing shortcodes or add even more.
-An example-page with all shortcodes is provided with the installation: `content/pages/examples.md`
+A demo page with all shortcodes is provided with the installation: `content/pages/shortcodes.md`
 
+## Plugins
 
-## Customization
+Optional features live under `plugins/<name>/` and are enabled in `config.php`:
 
-### Themes
+```php
+$enabledPlugins = ['multilang'];
+```
+
+Each plugin is `plugins/<name>/plugin.php`. A plugin may take over page routing; otherwise flatMark stays single-language under `content/pages/`.
+
+Themes call `flatmark_hook('head')` and `flatmark_hook('footer')`. Plugins may register callbacks with `flatmark_add_hook(...)` when they load.
+
+Detailed setup for each plugin lives in `plugins/<name>/README.md`.
+
+See the demo page [Plugins](https://flatmark.elektrischerwalfisch.de/plugins) for the list of shipped plugins.
+
+## Themes
 
 Themes live under `themes/<name>/`. The active theme is selected only by `$themeName` in `config.php`. There is no automatic fallback to another theme.
 

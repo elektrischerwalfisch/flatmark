@@ -6,17 +6,7 @@ robots: index, follow
 
 # Plugins
 
-Optional features live under `plugins/<name>/` and are enabled in `config.php`:
-
-```php
-$enabledPlugins = ['multilang'];
-```
-
-Each plugin is `plugins/<name>/plugin.php`. A plugin may take over page routing; otherwise flatMark stays single-language under `content/pages/`.
-
-Themes call `flatmark_hook('head')` and `flatmark_hook('footer')`. Plugins may register callbacks with `flatmark_add_hook(...)` when they load.
-
-Detailed setup for each plugin lives in `plugins/<name>/README.md`.
+Shipped optional features. Enable them in `config.php` with `$enabledPlugins`. How plugins work is documented in the [project README](https://github.com/elektrischerwalfisch/flatmark/blob/development/README.md#plugins).
 
 ## Multilang
 
