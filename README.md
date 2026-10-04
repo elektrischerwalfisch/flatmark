@@ -54,7 +54,7 @@ For multilang URLs such as `/en/about`, see the demo page [Plugins](https://flat
 
 ## Requirements  
 - PHP 7.4+  
-- Apache/Nginx with mod_rewrite enabled 
+- URL rewriting to `index.php` (Apache `.htaccess` / Nginx `rewrite`)
 
 ## Configuration  
 Site settings live in `config.php` (gitignored). Copy `config.example.php` to `config.php` for local installs and for the demo deploy.
