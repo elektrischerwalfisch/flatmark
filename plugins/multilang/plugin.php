@@ -2,15 +2,7 @@
 /**
  * Multilang plugin for flatMark.
  *
- * Enable with: $enabledPlugins = ['multilang'];
- * Configure with:
- *   $supportedLanguages = ['en', 'de']; // first entry is fallback / x-default
- *   $siteBaseUrl = 'https://example.com'; // required for hreflang absolute URLs
- *
- * Pages live under content/pages/<lang>/ when this plugin is enabled.
- *
- * Optional page front matter for different slugs per language:
- *   i18n.de: kontakt
+ * See README.md in this folder for setup and options.
  *
  * @package flatMark
  */

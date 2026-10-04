@@ -73,7 +73,7 @@ $enabledPlugins = [];
 - `$themeName` — theme folder under `themes/`  
 - `$enabledPlugins` — optional plugin folders under `plugins/` (empty by default)
 
-See the demo page [Plugins](https://flatmark.elektrischerwalfisch.de/plugins) for setup details (including multilang).
+See the demo page [Plugins](https://flatmark.elektrischerwalfisch.de/plugins) for an overview. Each plugin documents setup in `plugins/<name>/README.md` (multilang: [plugins/multilang/README.md](plugins/multilang/README.md)).
 
 Find available language-codes here: [HTML Language Code Reference](https://www.w3schools.com/tags/ref_language_codes.asp) 
 
