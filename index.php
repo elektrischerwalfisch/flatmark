@@ -68,6 +68,32 @@
         $Parsedown = new Parsedown();
 
 // ---------------------------------------------------------------------------
+// Hooks
+// ---------------------------------------------------------------------------
+
+    // Named hook registry (plugins register; themes call flatmark_hook)
+        $flatmarkHooks = [];
+        $flatmarkHookContext = [];
+
+        if (!function_exists('flatmark_add_hook')) {
+            function flatmark_add_hook(string $name, callable $callback): void
+            {
+                global $flatmarkHooks;
+                $flatmarkHooks[$name][] = $callback;
+            }
+        }
+
+        if (!function_exists('flatmark_hook')) {
+            function flatmark_hook(string $name): void
+            {
+                global $flatmarkHooks, $flatmarkHookContext;
+                foreach ($flatmarkHooks[$name] ?? [] as $callback) {
+                    $callback($flatmarkHookContext ?? []);
+                }
+            }
+        }
+
+// ---------------------------------------------------------------------------
 // Routing + plugins
 // ---------------------------------------------------------------------------
 
@@ -81,6 +107,7 @@
             'requestUri' => $requestUri,
             'uriParts' => $uriParts,
             'lang' => $lang,
+            'locale' => $lang,
             'themeName' => $themeName,
             'themePath' => $themePath,
             'folder' => __DIR__ . '/content/pages/',
@@ -134,6 +161,7 @@
         }
 
         $lang = $context['lang'] ?? $lang;
+        $locale = $context['locale'] ?? $lang;
         $page = $context['page'];
         $file = $context['file'];
         $headerFile = $context['headerFile'];
@@ -166,15 +194,26 @@
             $yaml = $matches[1];
             $markdown = $matches[2]; // Markdown content without metadata
 
-            // Parse metadata manually (line by line)
+            // Parse metadata manually (line by line; keys may contain dots, e.g. i18n.de)
             foreach (explode("\n", $yaml) as $line) {
-                if (preg_match('/^\s*([\w\-]+):\s*(.*)$/', $line, $meta)) {
+                if (preg_match('/^\s*([\w\.-]+):\s*(.*)$/', $line, $meta)) {
                     $key = trim($meta[1]);
                     $value = trim($meta[2]);
                     $pageMeta[$key] = $value;
                 }
             }
         }
+
+    // Context passed into hook callbacks at render time
+        $flatmarkHookContext = [
+            'root' => __DIR__,
+            'lang' => $lang,
+            'locale' => $locale,
+            'page' => $page,
+            'pageMeta' => $pageMeta,
+            'context' => $context,
+            'httpStatus' => $context['httpStatus'] ?? 200,
+        ];
 
     // Load header and footer markdown files and convert to HTML
         $headerContent = '';

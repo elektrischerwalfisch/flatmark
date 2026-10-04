@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- feat: Add named hooks and multilang hreflang with i18n slug overrides
 - docs: Simplify URL structure table for single-language default
 - feat: Add Plugins page and fix routing conflicts with system folders
 - chore: Gitignore config.php and require copy from config.example.php

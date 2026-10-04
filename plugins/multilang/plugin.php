@@ -3,16 +3,27 @@
  * Multilang plugin for flatMark.
  *
  * Enable with: $enabledPlugins = ['multilang'];
- * Configure with: $supportedLanguages = ['en', 'de']; // first entry is fallback default
+ * Configure with:
+ *   $supportedLanguages = ['en', 'de']; // first entry is fallback / x-default
+ *   $siteBaseUrl = 'https://example.com'; // required for hreflang absolute URLs
  *
  * Pages live under content/pages/<lang>/ when this plugin is enabled.
+ *
+ * Optional page front matter for different slugs per language:
+ *   i18n.de: kontakt
  *
  * @package flatMark
  */
 
 $supportedLanguages = $supportedLanguages ?? ['en', 'de'];
+$siteBaseUrl = isset($siteBaseUrl) ? rtrim((string) $siteBaseUrl, '/') : '';
 
-return function (array $context) use ($supportedLanguages): array {
+$defaultLocales = [
+    'en' => 'en-GB',
+    'de' => 'de-DE',
+];
+
+return function (array $context) use ($supportedLanguages, $siteBaseUrl, $defaultLocales): array {
     $uriParts = $context['uriParts'];
     $firstSegment = $uriParts[0] ?? '';
 
@@ -41,12 +52,79 @@ return function (array $context) use ($supportedLanguages): array {
     }
 
     $context['lang'] = $lang;
+    $context['locale'] = $defaultLocales[$lang] ?? $lang;
     $context['folder'] = $folder;
     $context['page'] = $page;
     $context['file'] = $file;
     $context['headerFile'] = $headerFile;
     $context['footerFile'] = $footerFile;
+    $context['supportedLanguages'] = $supportedLanguages;
+    $context['siteBaseUrl'] = $siteBaseUrl;
     $context['routed'] = true;
+
+    // Emit hreflang via head hook (soft pairs; skip when siteBaseUrl missing or noindex)
+    $xDefaultLang = $supportedLanguages[0];
+    flatmark_add_hook('head', function (array $hookContext) use ($supportedLanguages, $siteBaseUrl, $xDefaultLang): void {
+        if ($siteBaseUrl === '') {
+            return;
+        }
+
+        if (($hookContext['httpStatus'] ?? 200) === 404) {
+            return;
+        }
+
+        $pageMeta = $hookContext['pageMeta'] ?? [];
+        $robotsValue = strtolower((string) ($pageMeta['robots'] ?? ''));
+        if (strpos($robotsValue, 'noindex') !== false) {
+            return;
+        }
+
+        $root = $hookContext['root'] ?? '';
+        $currentPage = (string) ($hookContext['page'] ?? 'home');
+
+        $isSafePagePath = static function (string $path): bool {
+            return $path !== ''
+                && strpos($path, '..') === false
+                && $path[0] !== '/';
+        };
+
+        $buildUrl = static function (string $langCode, string $pagePath) use ($siteBaseUrl): string {
+            if ($pagePath === 'home') {
+                return $siteBaseUrl . '/' . $langCode;
+            }
+            return $siteBaseUrl . '/' . $langCode . '/' . $pagePath;
+        };
+
+        $hreflangLinks = [];
+        foreach ($supportedLanguages as $langCode) {
+            $overrideKey = 'i18n.' . $langCode;
+            $alternatePage = isset($pageMeta[$overrideKey]) && $pageMeta[$overrideKey] !== ''
+                ? (string) $pageMeta[$overrideKey]
+                : $currentPage;
+            if (!$isSafePagePath($alternatePage)) {
+                continue;
+            }
+
+            $alternateFile = $root . '/content/pages/' . $langCode . '/' . $alternatePage . '.md';
+            if (!file_exists($alternateFile)) {
+                continue;
+            }
+
+            $hreflangLinks[$langCode] = $buildUrl($langCode, $alternatePage);
+        }
+
+        if ($hreflangLinks === []) {
+            return;
+        }
+
+        foreach ($hreflangLinks as $hreflang => $href) {
+            echo '<link rel="alternate" hreflang="' . htmlspecialchars($hreflang) . '" href="' . htmlspecialchars($href) . '">' . "\n";
+        }
+
+        if (isset($hreflangLinks[$xDefaultLang])) {
+            echo '<link rel="alternate" hreflang="x-default" href="' . htmlspecialchars($hreflangLinks[$xDefaultLang]) . '">' . "\n";
+        }
+    });
 
     return $context;
 };

@@ -7,7 +7,7 @@
 - Easy-to-edit content, just Markdown files  
 - Just requires basic php, no database or build-steps needed
 - Auto-parses **Markdown** to HTML using [Parsedown](https://parsedown.org/)  
-- Single-language by default (multilanguage planned as an optional plugin)
+- Single-language by default (optional multilang plugin for routing and hreflang)
 - **Metadata** for title, description, and robots meta tag for each site (YAML front matter)
 - Provides simple **Shortcodes** to arrange and style your content (e.g. columns, different backgrounds)
 - Basic, responsive **Theme** which you can customize and enhance  

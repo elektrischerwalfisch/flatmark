@@ -19,6 +19,7 @@
         <meta name="description" content="<?= htmlspecialchars($pageMeta['description']) ?>">
         <meta name="robots" content="<?= htmlspecialchars($pageMeta['robots']) ?>">
         <link rel="stylesheet" href="/themes/<?= htmlspecialchars($themeName) ?>/css/style.css">
+        <?php flatmark_hook('head'); ?>
     </head>
     <body>
         <div id="wrapper">
@@ -33,5 +34,6 @@
             </footer>
             <script src="/themes/<?= htmlspecialchars($themeName) ?>/js/presets.js"></script>
         </div>
+        <?php flatmark_hook('footer'); ?>
     </body>
 </html>
