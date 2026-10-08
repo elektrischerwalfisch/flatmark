@@ -39,10 +39,10 @@ Same slug across languages is the default. To point to another filename, add a f
 ```yaml
 ---
 title: Contact
-i18n.de: kontakt
+lang.de: kontakt
 ---
 ```
 
-Values are relative paths under that language folder, without `.md`. Nested paths such as `docs/guide` are allowed. Put matching entries on both sides if you want a consistent two-way map (`i18n.en` / `i18n.de`).
+Values are relative paths under that language folder, without `.md`. Nested paths such as `docs/guide` are allowed. Put matching entries on both sides if you want a consistent two-way map (`lang.en` / `lang.de`).
 
 Language codes: [HTML Language Code Reference](https://www.w3schools.com/tags/ref_language_codes.asp)

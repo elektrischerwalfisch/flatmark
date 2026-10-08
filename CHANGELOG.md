@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- refactor: Use lang.* instead of i18n.* for multilang slug overrides
 - docs: Mention optional plugins in README features
 - feat: Add a GitHub link to the header extras
 - docs: Clarify URL rewriting requirement for Apache and Nginx

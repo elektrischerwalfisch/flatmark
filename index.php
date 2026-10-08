@@ -194,7 +194,7 @@
             $yaml = $matches[1];
             $markdown = $matches[2]; // Markdown content without metadata
 
-            // Parse metadata manually (line by line; keys may contain dots, e.g. i18n.de)
+            // Parse metadata manually (line by line; keys may contain dots, e.g. lang.de)
             foreach (explode("\n", $yaml) as $line) {
                 if (preg_match('/^\s*([\w\.-]+):\s*(.*)$/', $line, $meta)) {
                     $key = trim($meta[1]);

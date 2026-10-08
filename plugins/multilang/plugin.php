@@ -89,7 +89,7 @@ return function (array $context) use ($supportedLanguages, $siteBaseUrl, $defaul
 
         $hreflangLinks = [];
         foreach ($supportedLanguages as $langCode) {
-            $overrideKey = 'i18n.' . $langCode;
+            $overrideKey = 'lang.' . $langCode;
             $alternatePage = isset($pageMeta[$overrideKey]) && $pageMeta[$overrideKey] !== ''
                 ? (string) $pageMeta[$overrideKey]
                 : $currentPage;
