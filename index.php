@@ -1,7 +1,7 @@
 <?php
 /**
  * Project: flatMark
- * Version: 2.0.0-dev
+ * Version: 2.0.0
  *
  * Project URI: https://github.com/elektrischerwalfisch/flatmark
  * Author: elektrischerwalfisch

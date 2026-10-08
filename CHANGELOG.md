@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## 2.0.0 - 2026-10-08
+
+- chore: release 2.0.0
 - refactor: Use lang.* instead of i18n.* for multilang slug overrides
 - docs: Mention optional plugins in README features
 - feat: Add a GitHub link to the header extras
