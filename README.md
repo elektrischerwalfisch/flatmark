@@ -7,11 +7,11 @@
 - Easy-to-edit content, just Markdown files  
 - Just requires basic php, no database or build-steps needed
 - Auto-parses **Markdown** to HTML using [Parsedown](https://parsedown.org/)  
-- Single-language by default (optional multilang plugin for routing and hreflang)
 - **Metadata** for title, description, and robots meta tag for each site (YAML front matter)
 - Provides simple **Shortcodes** to arrange and style your content (e.g. columns, different backgrounds)
 - Basic, responsive **Theme** which you can customize and enhance  
 - Option to use individual **Templates** for single pages
+- Optional **Plugins** (e.g. multilang for routing and hreflang)
 
 ## Demo
 The [Demo Website](https://flatmark.elektrischerwalfisch.de) is an exact copy of the [GitHub Repository](https://github.com/elektrischerwalfisch/flatmark) and doubles as the documentation site. 

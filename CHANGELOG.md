@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- docs: Mention optional plugins in README features
 - feat: Add a GitHub link to the header extras
 - docs: Clarify URL rewriting requirement for Apache and Nginx
 - docs: Restructure plugin docs and rename examples page to shortcodes
