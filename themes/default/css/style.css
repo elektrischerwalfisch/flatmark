@@ -150,16 +150,16 @@ table {border-collapse: collapse;border-spacing: 0;}
 header ul {display: none;} /* prevent output of menu-lists before they are rendered in /themes/default/js/presets.js */
 header {min-height: 148px; /* hotfix: set min-height to prevent jump on first pageload */ display: flex;flex-wrap: wrap; position: relative;padding: var(--space-below-02) var(--side-space-02) var(--space-below-01) var(--side-space-02) ;}
 
-header p {margin-bottom: 0;color: var(--colorblack);width: calc(100% - 74px);}
 header p:has(img) {width: auto;}
 header p:has(img) img {width: 64px;display: block;margin-right: 10px;}
+header > p {margin-bottom: 0;color: var(--colorblack);width: calc(100% - 74px);}
 header > p > a {color: var(--colorblack);display: block;text-decoration: none;font-size: var(--fontsize-xl);line-height: 1.2;font-weight: 500;}
 
 header .extras {position: absolute;top: var(--space-below-02);right: var(--side-space-02);}
 header .extras ul {display: block;text-align: right;}
-header .extras li a {display: block;color: var(--color-01);font-size: var(--fontsize-s);line-height: 1.6;font-weight: 600;text-decoration: none;text-transform: uppercase;}
-header .extras li a:hover {text-decoration: underline;}
-header .extras li a.active {color: var(--colorblack);}
+header .extras a {display: block;color: var(--color-01);font-size: var(--fontsize-s);line-height: 1.6;font-weight: 600;text-decoration: none;}
+header .extras a:hover {text-decoration: underline;}
+header .extras a.active {color: var(--colorblack);}
 
 header #main-nav {padding-top: var(--space-below-01);width: 100%;}
 header #main-nav ul {display: flex;background: var(--color-01);margin-bottom: 0;}

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- feat: Add a GitHub link to the header extras
 - docs: Clarify URL rewriting requirement for Apache and Nginx
 - docs: Restructure plugin docs and rename examples page to shortcodes
 - docs: Move multilang setup docs into the plugin README
